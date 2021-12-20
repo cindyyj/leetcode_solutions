@@ -1,9 +1,17 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        # Time complexity: O(n^2). For each element, we try to find its complement by looping through the rest of the array which takes O(n) time. Therefore, the time complexity is O(n^2)
-        # Space complexity: O(1)O(1). The space required does not depend on the size of the input array, so only constant space is used.
         
-        for i in range(len(nums)):
-            for j in range(i+1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return [i, j]
+        # Time complexity: O(n). We traverse the list containing nn elements exactly twice. Since the hash table reduces the lookup time to O(1), the overall time complexity is O(n). 
+        #  reduce the lookup time from O(n)O(n) to O(1)O(1) by trading space for speed. A hash table is well suited for this purpose because it supports fast lookup in near constant time. I say "near" because if a collision occurred, a lookup could degenerate to O(n)O(n) time. However, lookup in a hash table should be amortized O(1)O(1) time as long as the hash function was chosen carefully.
+
+        # Space complexity: O(n). The extra space required depends on the number of items stored in the hash table, which stores exactly n elements.    
+        
+        hashdict = dict()        
+        
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in hashdict:
+                return [hashdict[complement], i]
+            hashdict[num] = i
+        
+        return []
