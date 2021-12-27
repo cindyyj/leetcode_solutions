@@ -36,6 +36,16 @@ class Solution:
 	# Memory Used: 16.5 MB
 	# Runtime: >5 seconds
 
-        for num in nums:
-            if nums.count(num) == 1:
-                return num
+        # for num in nums:
+        #     if nums.count(num) == 1:
+        #         return num
+
+
+# --------------------------- METHOD 4 ---------------------------
+	# Use built-in list.sort() method
+
+        nums.sort()
+        for i in range(0,len(nums)-1,2):
+            if nums[i]!=nums[i+1]:
+                return nums[i]
+        return nums[len(nums)-1]
