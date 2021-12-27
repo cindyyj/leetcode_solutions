@@ -43,9 +43,17 @@ class Solution:
 
 # --------------------------- METHOD 4 ---------------------------
 	# Use built-in list.sort() method
-
+        # for i in range(0,len(nums)-1,2):
+        #     if nums[i]!=nums[i+1]:
+        #         return nums[i]
+        # return nums[len(nums)-1]
+        
         nums.sort()
-        for i in range(0,len(nums)-1,2):
-            if nums[i]!=nums[i+1]:
+        i = 0
+        while i < len(nums)-1:
+            if nums[i] != nums[i+1]:
                 return nums[i]
+            i += 2
+        
         return nums[len(nums)-1]
+    
