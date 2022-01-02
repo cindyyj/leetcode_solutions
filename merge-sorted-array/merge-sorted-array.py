@@ -2,6 +2,11 @@ class Solution:
     def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
         Do not return anything, modify nums1 in-place instead.
+        If p2 == 0, we've successfully merged nums2 into nums1. 
+        Hence, we can return straightaway since there is nothing more to be done.
+        If p1 == 0, we are only left with nums2 elements to fix. 
+        Since we started with largest elements first, 
+        we can guarantee that the remaining k elements in nums2 (where k <= n) are smaller than the rest of the elements we've previously fixed.
         """
         pointer1 = m-1
         pointer2 = n-1
