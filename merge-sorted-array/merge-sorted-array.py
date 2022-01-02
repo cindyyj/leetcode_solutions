@@ -3,7 +3,6 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        
         pointer1 = m-1
         pointer2 = n-1
         write_index = m+n-1
@@ -17,4 +16,3 @@ class Solution:
                 pointer2 -= 1
         
             write_index -= 1 
-        
