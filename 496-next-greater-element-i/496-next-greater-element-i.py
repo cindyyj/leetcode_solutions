@@ -5,6 +5,7 @@ class Solution:
         # 当我们遍历到元素 nums2[i]nums2[i] 时，可以先将栈顶中比 nums2[i]nums2[i] 小的元素出栈，最终结果有两种可能：
         # 栈为空，说明 nums2[i]nums2[i] 之前（右边）没有比其大的数；
         # 栈不为空， 此时栈顶元素为 nums2[i]nums2[i] 在 nums2nums2 中（右边）最近的比其大的数
+        # T: O(m+n), S:O(n)
 
         res = {}
         stack = []
