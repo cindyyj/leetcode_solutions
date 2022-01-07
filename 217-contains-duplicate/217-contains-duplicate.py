@@ -2,7 +2,7 @@ class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         
         
-        # Method 1 -- Apply hashtable O(n)
+        # Method 1 -- Apply set 
         seen = set()
         for i in nums:
             if i not in seen:
