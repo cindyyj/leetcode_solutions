@@ -3,10 +3,10 @@ class Solution:
         
         
         # Method 1 -- Apply hashtable O(n)
-        hashNum = {}
+        seen = set()
         for i in nums:
-            if i not in hashNum:
-                hashNum[i] = 1
+            if i not in seen:
+                seen.add(i)
             else:
                 return True
         return False
