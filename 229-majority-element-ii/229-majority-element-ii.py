@@ -1,14 +1,22 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> List[int]:
-        # HashMap
-        counts = collections.Counter(nums)
-        ans = []
         
-        for key, value in counts.items():
-            if value > len(nums)/3:
-                ans.append(key)
+        # set
+        unique = set(nums)
+        return [num for num in unique if nums.count(num) > len(nums) / 3]
+        
+        # Moore Voting
+        
+        
+#         # HashMap
+#         counts = collections.Counter(nums)
+#         ans = []
+        
+#         for key, value in counts.items():
+#             if value > len(nums)/3:
+#                 ans.append(key)
                 
-        return ans
+#         return ans
         
 #         # Brute Force: Time (O(n**2))
 #         majority_count = len(nums) // 3
