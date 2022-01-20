@@ -10,6 +10,9 @@ class Solution:
         # recursive
         # https://leetcode.com/problems/powx-n/discuss/19560/Shortest-Python-Guaranteed
         
+        # 时间复杂度：O(logn)，即为递归的层数。
+        # 空间复杂度：O(\log n)O(logn)，即为递归的层数。这是由于递归的函数调用会使用栈空间。
+
         if n == 0:
             return 1
         
