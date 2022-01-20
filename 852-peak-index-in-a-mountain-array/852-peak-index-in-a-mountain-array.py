@@ -1,9 +1,15 @@
 class Solution:
     def peakIndexInMountainArray(self, arr: List[int]) -> int:
         
-        # linear scan
-        # https://leetcode.com/problems/peak-index-in-a-mountain-array/discuss/139848/C%2B%2BJavaPython-Better-than-Binary-Search
-        return arr.index(max(arr))
+#         # linear scan
+#         # https://leetcode.com/problems/peak-index-in-a-mountain-array/discuss/139848/C%2B%2BJavaPython-Better-than-Binary-Search
+#         return arr.index(max(arr))
+        
+        # linear scan with loop, Time, O(N)
+        # The mountain increases until it doesn't. The point at which it stops increasing is the peak.
+        for i in range(len(arr)):
+            if arr[i] > arr[i+1]:
+                return i
         
 #         # binary search
 #         l, r = 0, len(arr) - 1
