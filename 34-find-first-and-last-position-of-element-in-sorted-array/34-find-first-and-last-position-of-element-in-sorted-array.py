@@ -5,6 +5,9 @@ class Solution:
         if not nums:
             return [-1, -1]
         
+        if target < nums[0] or target > nums[-1]:
+            return [-1, -1]
+        
         def left_bound(nums, target):
             l, r = 0, len(nums) - 1
             
