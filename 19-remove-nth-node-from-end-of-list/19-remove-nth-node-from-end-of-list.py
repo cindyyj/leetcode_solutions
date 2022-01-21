@@ -6,6 +6,8 @@
 
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        
+# --------------------------------------------        
         # Stack (with dummy node)
         
         dummy = ListNode(0, head)
@@ -13,7 +15,7 @@ class Solution:
         
         cur = dummy
         # push all nodes in stack
-        while cur:
+        while cur:            
             stack.append(cur)
             cur = cur.next
             
@@ -24,7 +26,8 @@ class Solution:
         stack[-1].next = stack[-1].next.next
         
         return dummy.next
-    
+
+# --------------------------------------------
 #     # 计算链表长度, 当遍历到第 L-n 个节点时, 它就是我们需要删除的节点。
 #     def get_length(self, head):
 #         length = 0
