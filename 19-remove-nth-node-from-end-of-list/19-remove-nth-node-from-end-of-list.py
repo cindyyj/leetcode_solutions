@@ -8,7 +8,8 @@ class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         
         # two pointers, fast and slow pointers, still requires dummy
-        
+# 时间复杂度：O(L)，其中 L 是链表的长度。
+# 空间复杂度：O(1)。        
         dummy = ListNode(0, head)
         
         slow = fast = dummy
@@ -25,8 +26,7 @@ class Solution:
         
         return dummy.next
         
-        
-        
+
 # # --------------------------------------------        
 #         # Stack (with dummy node)
 # # 时间复杂度：O(L)，其中 L 是链表的长度。
