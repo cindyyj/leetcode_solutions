@@ -26,8 +26,7 @@ class Solution:
             while l < r and nums[r] == nums[r-1]:
                 r -= 1
             
-        # same with Problem 33, find target in rotated array, no duplicate
-        
+            # same with Problem 33, find target in rotated array, no duplicate  
             mid = l + (r - l) // 2
             if nums[mid] == target:
                 return True
