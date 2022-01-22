@@ -1,8 +1,23 @@
 # leetcode_solutions
 Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub).
 
+### List
+- first 50 udemy: https://github.com/cissieAB/Udemy_LeetCodeInPython/tree/afb07219215250401d97de00a2592a54a1ca2e27 
+- David's LeetCode Practice with pytest: https://github.com/daviddwlee84/LeetCode/tree/baf2bdc8b60f3b0a51cb3816aa968bf518e4b7f9
+  - pow(x, n) with lru_cache: https://github.com/daviddwlee84/LeetCode/blob/baf2bdc8b60f3b0a51cb3816aa968bf518e4b7f9/Python3/Math/PowXN/Recursive2_050.py
+- 花花酱千题时代  https://docs.google.com/spreadsheets/d/1SbpY-04Cz8EWw3A_LBUmDEXKUMO31DBjfeMoA0dlfIA/edit#gid=126913158
+
+
 ### Good example:
 - https://github.com/sunjianbo945/leetcode/blob/dca40686c6a280bd394feb8e6e78d40eecf854b9/src/first_hundred_liked/3_Longest_Substring_Without_Repeating_Characters.py
+
+```
+def main():
+    print(Solution().lengthOfLongestSubstring("abcabccc"))
+
+if __name__=='__main__':
+    main()
+```    
 
 ### Favorite solution: 
 162 https://leetcode.com/problems/find-peak-element/discuss/50259/My-clean-and-readable-python-solution
