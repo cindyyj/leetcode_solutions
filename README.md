@@ -6,6 +6,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 - David's LeetCode Practice with pytest: https://github.com/daviddwlee84/LeetCode/tree/baf2bdc8b60f3b0a51cb3816aa968bf518e4b7f9
   - pow(x, n) with lru_cache: https://github.com/daviddwlee84/LeetCode/blob/baf2bdc8b60f3b0a51cb3816aa968bf518e4b7f9/Python3/Math/PowXN/Recursive2_050.py
 - 花花酱千题时代刷题攻略  https://docs.google.com/spreadsheets/d/1SbpY-04Cz8EWw3A_LBUmDEXKUMO31DBjfeMoA0dlfIA/edit#gid=126913158
+- 负雪明烛常考百题 2021-12-27 https://blog.csdn.net/fuxuemingzhu/article/details/122164511?spm=1001.2014.3001.5501
 - 残酷刷题群群主wisdompeak（资深群友如lee215） https://github.com/wisdompeak/LeetCode
 
 
