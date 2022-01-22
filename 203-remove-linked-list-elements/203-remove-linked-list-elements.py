@@ -9,12 +9,6 @@ class Solution:
         if not head:
             return head
         
-        if head.next is None and head.val == val:
-            return None
-
-        if head.next is None and head.val != val:
-            return head
-        
         dummy, dummy.next = ListNode(0), head
         
         pre, cur = dummy, head
