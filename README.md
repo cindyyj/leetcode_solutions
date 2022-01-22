@@ -8,6 +8,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 - 花花酱千题时代刷题攻略  https://docs.google.com/spreadsheets/d/1SbpY-04Cz8EWw3A_LBUmDEXKUMO31DBjfeMoA0dlfIA/edit#gid=126913158
 - 负雪明烛常考百题 2021-12-27 https://blog.csdn.net/fuxuemingzhu/article/details/122164511?spm=1001.2014.3001.5501
 - 残酷刷题群群主wisdompeak（资深群友如lee215） https://github.com/wisdompeak/LeetCode
+- 极客大学 10周 算法训练营 https://github.com/ppd0705/10-week-algorithm-excercise
 
 
 ### Good example:
