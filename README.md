@@ -5,7 +5,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 - first 50 udemy: https://github.com/cissieAB/Udemy_LeetCodeInPython/tree/afb07219215250401d97de00a2592a54a1ca2e27 
 - David's LeetCode Practice with pytest: https://github.com/daviddwlee84/LeetCode/tree/baf2bdc8b60f3b0a51cb3816aa968bf518e4b7f9
   - pow(x, n) with lru_cache: https://github.com/daviddwlee84/LeetCode/blob/baf2bdc8b60f3b0a51cb3816aa968bf518e4b7f9/Python3/Math/PowXN/Recursive2_050.py
-- 花花酱千题时代  https://docs.google.com/spreadsheets/d/1SbpY-04Cz8EWw3A_LBUmDEXKUMO31DBjfeMoA0dlfIA/edit#gid=126913158
+- 花花酱千题时代刷题攻略  https://docs.google.com/spreadsheets/d/1SbpY-04Cz8EWw3A_LBUmDEXKUMO31DBjfeMoA0dlfIA/edit#gid=126913158
 
 
 ### Good example:
@@ -24,6 +24,8 @@ if __name__=='__main__':
 
 ### Advanced function tools:
 - @lru_cache
-  - https://github.com/yifeitao/yifeitao.github.io/blob/21034b6dcfc6b6e6a44c6c4579d332a90064677e/_posts/2019-04-23-frog-and-cache.md
-  - https://github.com/coder-baymax/blog/blob/4511352e5a7ebf63ef645bde41c9063c7d5ac764/_posts/2020-09-14-leetcode-magic-lru-cache.md
-  - https://github.com/BIAOXYZ/myNotes/blob/8c49bd6e138a73a37ad69a080dfc7454142b2fc5/programming_notes/programming_languages/prog_lang_python/Python_packages/Functional_Programming_Modules/functools/README.md
+  - 青蛙与缓存：简化实用版动态规划 https://github.com/yifeitao/yifeitao.github.io/blob/21034b6dcfc6b6e6a44c6c4579d332a90064677e/_posts/2019-04-23-frog-and-cache.md
+  - 算法笔记：使用函数缓存应对复杂的推导和动态规划 https://github.com/coder-baymax/blog/blob/4511352e5a7ebf63ef645bde41c9063c7d5ac764/_posts/2020-09-14-leetcode-magic-lru-cache.md
+  - functools --- 高阶函数和可调用对象上的操作https://github.com/BIAOXYZ/myNotes/blob/8c49bd6e138a73a37ad69a080dfc7454142b2fc5/programming_notes/programming_languages/prog_lang_python/Python_packages/Functional_Programming_Modules/functools/README.md
+
+- itertools --- 为高效循环而创建迭代器的函数 https://github.com/BIAOXYZ/myNotes/blob/8c49bd6e138a73a37ad69a080dfc7454142b2fc5/programming_notes/programming_languages/prog_lang_python/Python_packages/Functional_Programming_Modules/itertools/README.md
