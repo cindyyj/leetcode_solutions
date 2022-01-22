@@ -1,19 +1,18 @@
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        nums[:] = [elem for elem in nums if elem != val]
-        return
+        # nums[:] = [elem for elem in nums if elem != val]
+        # return
         
-#         if not nums:
-#             return nums
+        if not nums:
+            return 0
         
-#         slow = fast = 0
+        slow = fast = 0
         
-#         while fast < len(nums):
-#             if nums[fast] != val:
-#                 nums[slow] = nums[fast]
-#                 slow += 1
-#                 fast += 1
+        while fast < len(nums):
+            if nums[fast] != val:
+                nums[slow] = nums[fast]
+                slow += 1
             
-#             fast += 1
+            fast += 1
         
-#         return nums
+        return slow
