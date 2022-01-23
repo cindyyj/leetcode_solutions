@@ -1,28 +1,50 @@
 class MinStack:
-
     # 辅助栈法
-    # keep another stack for min only 
+    #  using tuples as stack elements, that the second element in
+    # the tuple is the min to enable constant getMin() 
     # O(2n) space, O(n)
     def __init__(self):
         self.stack = []
-        self.min_stack = []
         
     def push(self, val: int) -> None:
-        self.stack.append(val)
-        # val <= self.min_stack[-1] won't work for cases of multiple same minimum, e.g. 3, 1, 1
-        if not self.min_stack or val <= self.min_stack[-1]: 
-            self.min_stack.append(val)        
+        if not self.stack:
+            self.stack.append((val, val))
+        else:
+            self.stack.append((val, min(self.getMin(), val)))   
 
     def pop(self) -> None:
-        if self.stack[-1] == self.min_stack[-1]:
-            self.min_stack.pop()
         self.stack.pop()
 
     def top(self) -> int:
-        return self.stack[-1] if self.stack else None
+        return self.stack[-1][0] if self.stack else None
 
     def getMin(self) -> int:
-        return self.min_stack[-1] if self.min_stack else None
+        return self.stack[-1][1] if self.stack else None
+    
+
+#     # 辅助栈法
+#     # keep another stack for min only 
+#     # O(2n) space, O(n)
+#     def __init__(self):
+#         self.stack = []
+#         self.min_stack = []
+        
+#     def push(self, val: int) -> None:
+#         self.stack.append(val)
+#         # val <= self.min_stack[-1] won't work for cases of multiple same minimum, e.g. 3, 1, 1
+#         if not self.min_stack or val <= self.min_stack[-1]: 
+#             self.min_stack.append(val)        
+
+#     def pop(self) -> None:
+#         if self.stack[-1] == self.min_stack[-1]:
+#             self.min_stack.pop()
+#         self.stack.pop()
+
+#     def top(self) -> int:
+#         return self.stack[-1] if self.stack else None
+
+#     def getMin(self) -> int:
+#         return self.min_stack[-1] if self.min_stack else None
 
         
 # 面试的时候被问到不能用额外空间，就去网上搜了下不用额外空间的做法。思路是栈里保存差值。
