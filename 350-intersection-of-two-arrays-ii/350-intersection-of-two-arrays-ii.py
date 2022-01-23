@@ -6,7 +6,6 @@ class Solution:
         return list((Counter(nums1) & Counter(nums2)).elements())
 
         
-        
 #         # two pointers
 #         if not nums1 or not nums2:
 #             return None
