@@ -13,13 +13,9 @@ class Solution:
         
         for i in range(len(t)):
             count[ord(t[i])-ord('a')] -= 1
-            
-        for i in range(26):
-            if count[i] != 0:
-                return False
         
-        return True
-        
+        return count == [0]*26
+
 #         # one-line
 #         if len(s) != len(t):
 #             return False
