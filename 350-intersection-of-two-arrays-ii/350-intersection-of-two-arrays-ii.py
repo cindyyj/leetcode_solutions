@@ -1,12 +1,23 @@
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
         
-        # simple counter
-        from collections import Counter
-        return list((Counter(nums1) & Counter(nums2)).elements())
+        # 1. counter
+        # great use of counter!!!
+        res =[]
+        c1, c2 = collections.Counter(nums1), collections.Counter(nums2)
+        
+        for i in c1:
+            if i in c2:
+                res.extend([i]*min(c1[i], c2[i]))
+                
+        return res
+        
+#         # 2. simple counter
+#         from collections import Counter
+#         return list((Counter(nums1) & Counter(nums2)).elements())
 
         
-#         # two pointers
+#         # 3. two pointers
 #         if not nums1 or not nums2:
 #             return None
         
@@ -29,5 +40,5 @@ class Solution:
         
 #         return res
         
-        # https://leetcode.com/problems/intersection-of-two-arrays-ii/discuss/82247/Three-Python-Solutions
-        # see the comments!!!
+#         # https://leetcode.com/problems/intersection-of-two-arrays-ii/discuss/82247/Three-Python-Solutions
+#         # see the comments!!!
