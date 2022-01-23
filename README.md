@@ -25,7 +25,7 @@ if __name__=='__main__':
 ### Favorite solution: 
 - 876 find middle of linked list: includes create, print LL and test https://leetcode-cn.com/problems/middle-of-the-linked-list/solution/kuai-man-zhi-zhen-zhu-yao-zai-yu-diao-shi-by-liwei/
 - 162 https://leetcode.com/problems/find-peak-element/discuss/50259/My-clean-and-readable-python-solution
-- 350, great use of counter in solution! 
+- 350, great use of counter in solution! https://github.com/cindyyj/leetcode_solutions/blob/main/350-intersection-of-two-arrays-ii/350-intersection-of-two-arrays-ii.py
 
 ### Advanced function tools:
 - @lru_cache
