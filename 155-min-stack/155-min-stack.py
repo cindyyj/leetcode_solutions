@@ -1,24 +1,29 @@
 class MinStack:
 
     # 辅助栈法
+    # keep another stack for min only 
+    # O(2n) space, O(n)
     def __init__(self):
         self.stack = []
         self.min_stack = []
         
     def push(self, val: int) -> None:
         self.stack.append(val)
-        if not self.min_stack or val <= self.min_stack[-1]:
+        # val <= self.min_stack[-1] won't work for cases of multiple same minimum, e.g. 3, 1, 1
+        if not self.min_stack or val <= self.min_stack[-1]: 
             self.min_stack.append(val)        
 
     def pop(self) -> None:
-        if self.stack.pop() == self.min_stack[-1]:
-            self.min_stack.pop()       
+        if self.stack[-1] == self.min_stack[-1]:
+            self.min_stack.pop()
+        self.stack.pop()
 
     def top(self) -> int:
-        return self.stack[-1]
+        return self.stack[-1] if self.stack else None
 
     def getMin(self) -> int:
-        return self.min_stack[-1]
+        return self.min_stack[-1] if self.min_stack else None
+
         
 # 面试的时候被问到不能用额外空间，就去网上搜了下不用额外空间的做法。思路是栈里保存差值。
 # https://github.com/cissieAB/Udemy_LeetCodeInPython/blob/afb07219215250401d97de00a2592a54a1ca2e27/Codes/min_stack.py
