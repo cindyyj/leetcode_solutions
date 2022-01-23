@@ -26,7 +26,7 @@ class Solution:
             slow = slow.next
             pointer = pointer.next
         
-        return slow          
+        return slow
         
 #         Proof:
 #         If no cycle exists , fast pointer will reach the end and we will detect no cycle.
