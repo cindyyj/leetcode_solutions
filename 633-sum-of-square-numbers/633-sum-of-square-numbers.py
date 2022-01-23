@@ -4,14 +4,18 @@ class Solution:
         # 5 solutions, include using Fermat Theorem (too complicated)
         # n**2 = 1+3+..+ (2n-1) = 2*(1+2+3+...+n) -n = 2*n(n+1)/2 - n = n**2
         
-        # sqrt
+        # 1. sqrt
+        # Time: O(sqrt(c) * logC), where c <= 2^31-1.
+        # The operation sqrt(x) takes (worst case) O(logX), can check this problem 69. Sqrt(x).
+        # Space: O(1)
         for a in range(int(c**0.5)+1):
-            b = (c - a*a)**0.5
+            b = (c - a*a)**0.5  # import math math.sqrt(c-a*a)
             if b == int(b):
                 return True
         return False
         
-#         # Hashset
+        
+#         # 2. Hashset
 #         # https://leetcode.com/problems/sum-of-square-numbers/discuss/1424957/Python-3-solutions%3A-Sqrt-HashSet-Two-Pointers-Clean-and-Concise-O(sqrt(c)) 
 #         # transforms this into two sum
 #         # Complexity
@@ -30,7 +34,7 @@ class Solution:
 #         return False
 
         
-#         # two pointer
+#         # 3. two pointer
 #         # https://leetcode-cn.com/problems/sum-of-square-numbers/solution/shuang-zhi-zhen-de-ben-zhi-er-wei-ju-zhe-ebn3/
 #         # becomes search in a 2d matrix
 #         # Complexity
