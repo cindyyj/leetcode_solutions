@@ -1,5 +1,33 @@
+from math import inf
+
 class MinStack:
-    # 辅助栈法
+
+    # use same stack, push/pop twice if min needs update
+    # use one constant to track min
+    # O(2n) space, O(n)
+    def __init__(self):
+        self.stack = []
+        self.min_stack = inf
+        
+    def push(self, val: int) -> None:
+        if val <= self.min:
+            self.stack.append(self.min) # push the last minimum in stack
+            self.min = val
+        self.stack.append(val) 
+
+    def pop(self) -> None:
+        pop_value = self.stack.pop() # pop once
+        if pop_value == self.min:
+            self.min_stack = self.stack.pop() # pop twice
+
+    def top(self) -> int:
+        return self.stack[-1] if self.stack else None
+
+    def getMin(self) -> int:
+        return self.min_stack if self.stack != inf else None
+    
+    
+    # use tuple to save min
     #  using tuples as stack elements, that the second element in
     # the tuple is the min to enable constant getMin() 
     # O(2n) space, O(n)
