@@ -14,6 +14,9 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 - https://github.com/chefyuan/algorithm-base
 
 
+### Data Structures:
+- Linked list: 234, good review on all tricks https://github.com/cindyyj/leetcode_solutions/blob/daf32b43d167736650092850dd06782ae07aba33/234-palindrome-linked-list/234-palindrome-linked-list.py
+
 ### Good example:
 - template: https://ojeveryday.github.io/AlgoWiki/#/BinarySearch/README
 - https://github.com/sunjianbo945/leetcode/blob/dca40686c6a280bd394feb8e6e78d40eecf854b9/src/first_hundred_liked/3_Longest_Substring_Without_Repeating_Characters.py
