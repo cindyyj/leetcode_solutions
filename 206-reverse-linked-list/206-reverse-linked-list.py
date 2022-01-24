@@ -5,6 +5,28 @@
 #         self.next = next
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # empty or one element
+        if not head or not head.next:
+            return head
+        pre, cur = None, head
+        while cur:
+            cur.next, pre, cur = pre, cur, cur.next
+            # pre, cur, cur.next = cur, cur.next, pre
+        return pre  
+    
+    
+#         # Iterative
+        
+#         pre, cur = None, head
+        
+#         while cur:
+#             cur.next, pre, cur = pre, cur, cur.next
+#             # this assignment is similar to python logic of swap variables
+#             # x, y = y, x 
+#             # x = tmp, x = y, y = tmp
+#             # cur.next = tmp, cur.next = pre, pre = cur, cur = tmp            
+        
+#         return pre
         
 #         #  Iterative Approach Easy Solution
 #         # https://leetcode-cn.com/problems/reverse-linked-list/solution/dong-hua-yan-shi-206-fan-zhuan-lian-biao-by-user74/
