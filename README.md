@@ -10,6 +10,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 - 残酷刷题群群主wisdompeak（资深群友如lee215） https://github.com/wisdompeak/LeetCode
 - 极客大学 10周 算法训练营 https://github.com/ppd0705/10-week-algorithm-excercise
 
+### Algo Animation
+- https://github.com/chefyuan/algorithm-base
 
 ### Good example:
 - https://github.com/sunjianbo945/leetcode/blob/dca40686c6a280bd394feb8e6e78d40eecf854b9/src/first_hundred_liked/3_Longest_Substring_Without_Repeating_Characters.py
