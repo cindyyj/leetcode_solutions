@@ -13,7 +13,9 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ### Algo Animation
 - https://github.com/chefyuan/algorithm-base
 
+
 ### Good example:
+- template: https://ojeveryday.github.io/AlgoWiki/#/BinarySearch/README
 - https://github.com/sunjianbo945/leetcode/blob/dca40686c6a280bd394feb8e6e78d40eecf854b9/src/first_hundred_liked/3_Longest_Substring_Without_Repeating_Characters.py
 
 ```
