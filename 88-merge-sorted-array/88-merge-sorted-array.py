@@ -11,28 +11,51 @@ class Solution:
 #         nums1.sort()
         
         
-# --------------------------- METHOD 2 ---------------------------        
+# # --------------------------- METHOD 2 ---------------------------        
+#         # two pointers 1 , Time & Space: O(m+n)
+#         i = j = 0
+#         res = []
+        
+#         while i < m or j < n:
+#             if i == m:
+#                 res.extend(nums2[j:])
+#                 break
+#             elif j == n:
+#                 res.extend(nums1[i:m])
+#                 break
+#             elif nums1[i] <= nums2[j]:
+#                 res.append(nums1[i])
+#                 i += 1
+#             else:
+#                 res.append(nums2[j])
+#                 j += 1
+                
+#         # change nums1 in place
+#         nums1[:] = res
+
+# --------------------------- METHOD 3 ---------------------------        
         # two pointers 1 , Time & Space: O(m+n)
         i = j = 0
         res = []
         
         while i < m or j < n:
             if i == m:
-                res.extend(nums2[j:])
-                break
+                res.append(nums2[j])
+                j += 1
             elif j == n:
-                res.extend(nums1[i:m])
-                break
+                res.append(nums1[i])
+                i += 1
             elif nums1[i] <= nums2[j]:
                 res.append(nums1[i])
                 i += 1
-            else:
+            else: 
                 res.append(nums2[j])
-                j += 1
-                
-        # change nums1 in place
-        nums1[:] = res
+                j += 1                
 
+        # change nums1 in place
+        nums1[:] = res        
+        
+# # --------------------------- METHOD 4 ---------------------------        
         
 #         # two pointer backwards, Time O(m+n), Space O(1) modify in place
 #         pointer1 = m-1
