@@ -1,6 +1,8 @@
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         
+        # classic dp
+        
 # # To save space, implementation without using DP table
 # # At each index, keep track of the maximum sum using variable (max_sum_until_i, and max_sum_sofar)
 # # max_until_i = max (max_until_i, max_until_i+cur_value)
