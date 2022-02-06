@@ -5,6 +5,10 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    
+    # Recursive solution has O(n) memory complexity as it will consume memory on the stack up to the height of binary tree h.
+    # It will be O(log n) for a balanced tree and in the worst case can be O(n).
+    
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         return self.isValid(root)
     
