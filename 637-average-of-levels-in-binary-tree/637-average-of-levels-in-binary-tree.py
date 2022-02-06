@@ -6,6 +6,13 @@
 #         self.right = right
 class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+        
+        # leetcode solutions!
+        # classic
+        # detailed explanation
+        
+        # https://leetcode.com/problems/average-of-levels-in-binary-tree/solution/
+        
         if not root:
             return root
         
