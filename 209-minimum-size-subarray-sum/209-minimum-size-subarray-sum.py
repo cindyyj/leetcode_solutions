@@ -4,12 +4,12 @@ class Solution:
         # sliding window, time O(n)
         
         if not nums:
-            return 0
+            return 0 
         
-        n = len(nums)
-        start = end = 0 #window start end
+        start = end = 0
         total = 0
-        ans = n+1
+        n = len(nums)
+        ans = n + 1
         
         for end in range(n):
             total += nums[end]
@@ -17,7 +17,9 @@ class Solution:
                 ans = min(ans, end - start + 1)
                 total -= nums[start]
                 start += 1
-        return 0 if ans == n+1 else ans
+        
+        return 0 if ans == n + 1 else ans
+        
         
         
 #         # brute force, time exceeds. Time O(n2), Space O(1)
