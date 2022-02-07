@@ -1,5 +1,7 @@
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        # 这题用鸽笼原理实现，由题意可得，1~n的位置表示1~n个笼子，如果出现过，相应的“鸽笼”就会被占掉，我们将数字置为负数表示被占掉了。
+        # 最后再遍历一遍，如果“鸽笼”为正数就是没出现的数字。  
         
         for num in nums:
             nums[abs(num)-1] = - abs(nums[abs(num)-1]) # when traverse to the index for num, it could already been flipped as negative. 
