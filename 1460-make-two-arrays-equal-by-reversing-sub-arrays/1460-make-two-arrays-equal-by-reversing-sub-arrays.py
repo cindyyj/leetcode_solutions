@@ -1,6 +1,7 @@
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
-        return sorted(target) == sorted(arr)
+        # return sorted(target) == sorted(arr)
+        return collections.Counter(target) == collections.Counter(arr)
 
         
 # 通过样例的启发，就是判断两个数组元素是否相同。
