@@ -8,13 +8,15 @@ class Solution:
         
         merged = []
         for interval in intervals:
-            
+
+            # if the list of merged intervals is empty or if the current
+            # interval does not overlap with the previous, simply append it.
             if not merged or merged[-1][1] < interval[0]:
                 merged.append(interval)
-                
             else:
-                # updated right end of last interval
-                merged[-1][1] = max(interval[1], merged[-1][1])
-        
+            # otherwise, there is overlap, so we merge the current and previous
+            # intervals.
+                merged[-1][1] = max(merged[-1][1], interval[1])
+
         return merged
 # # 链接：https://leetcode-cn.com/problems/merge-intervals/solution/he-bing-qu-jian-by-leetcode-solution/
