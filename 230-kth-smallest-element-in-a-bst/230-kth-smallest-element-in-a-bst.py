@@ -33,6 +33,13 @@ class Solution:
     # https://leetcode.com/problems/kth-smallest-element-in-a-bst/solution/
     # Time complexity : O(N) to build a traversal.
     # Space complexity : O(N) to keep an inorder traversal.
+    
+    # follow up!!!
+    # What if the BST is modified (insert/delete operations) often and you need to find the kth smallest frequently? 
+    # How would you optimize the kthSmallest routine?
+    # insert/delete a node into BST, time: O(h), h is height of binary tree. H = log(n) for balanced tree, H=N for skewed tree
+    # O (h) time for insert and delete
+    # o (k) for search kth smallest
         
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         
