@@ -17,47 +17,27 @@ class Solution:
         # application of defaultdict!!!
         
         
-#         from collections import deque, defaultdict        
-#         q = deque()
-#         nodeMap = defaultdict(list) # key-value pairs into a dictionary of lists
+        from collections import deque, defaultdict        
+        q = deque()
+        nodeMap = defaultdict(list) # key-value pairs into a dictionary of lists
         
-#         # node, level, parent
-#         q.append((root, 0, 0))
-        
-#         while q: 
-#             if x in nodeMap and y in nodeMap: # if x, y already in the nodeMap keys!
-#                 break
-                
-#             node, level, parent = q.popleft()
-#             nodeMap[node.val] = [level, parent]
-            
-#             if node.left:
-#                 q.append((node.left, level + 1, node.val))
-#             if node.right:
-#                 q.append((node.right, level + 1, node.val))
-                
-#         # if same level, not same parent
-#         if nodeMap[x][0] == nodeMap[y][0] and nodeMap[x][0] != nodeMap[y][0]:
-#             return True
-        
-#         return False
-    
-        q = collections.deque()
-        nodeMap = collections.defaultdict()
+        # node, level, parent
         q.append((root, 0, 0))
         
-        while q:
-            if x in nodeMap and y in nodeMap:
+        while q: 
+            if x in nodeMap and y in nodeMap: # if x, y already in the nodeMap keys!
                 break
+                
             node, level, parent = q.popleft()
             nodeMap[node.val] = [level, parent]
-
+            
             if node.left:
-                q.append((node.left, level+1, node.val))
-
+                q.append((node.left, level + 1, node.val))
             if node.right:
-                q.append((node.right, level+1, node.val))
-        
+                q.append((node.right, level + 1, node.val))
+                
+        # if same level, not same parent
         if nodeMap[x][0] == nodeMap[y][0] and nodeMap[x][1] != nodeMap[y][1]:
             return True
+        
         return False
