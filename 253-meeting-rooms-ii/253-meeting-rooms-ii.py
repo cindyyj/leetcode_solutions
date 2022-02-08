@@ -15,8 +15,20 @@ class Solution:
             room = max(room, ongoing)
         
         return room
-            
-        
+
+# https://leetcode.com/problems/meeting-rooms-ii/discuss/278270/JavaC%2B%2BPython-Sort-All-Time-Point           
+# Intuition
+# Track the change of room numbers in time order.
+
+# Explanation:
+
+# Save all time points and the change on current meeting rooms.
+# Sort all the changes on the key of time points.
+# Track the current number of using rooms cur and update result res.
+# Time Complexity:
+# Time O(NlogN)
+# Space O(N)        
+
 # 扫描线，把所有的时间排序，按照开始时间升序，开始时间相同结束时间升序的方式进行排序，如果时间相同，结束时间在前，
 # 扫描一遍，当扫描到开始时间，就会多一个房间，当扫描到结束时间就少一个房间，这样扫描到i时候就是i时间所需要的最少的房间
 # 我们的房间数量要满足所有时间的需求，所以答案就是对所有时间所需要的最少房间取最大值，这样就能满足所有时间的开会需求了。
