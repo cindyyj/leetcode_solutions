@@ -7,14 +7,40 @@
 class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         
-        def inorder(root):
-            return inorder(root.left) + [root.val] + inorder(root.right) if root else []
+        # BFS
         
-        nums = inorder(root)
+        from collections import deque
         
+        queue = deque([root])
         total = 0
-        for _, n in enumerate(nums):
-            if low <= n <= high:
-                total += n
+        
+        while queue:
+            node = queue.popleft()
+            if low <= node.val <= high:
+                total += node.val
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+            elif node.val < low: # must be on right
+                if node.right:
+                    queue.append(node.right)
+            else: 
+                if node.left:
+                    queue.append(node.left)
         
         return total
+                
+                    
+        
+#         def inorder(root):
+#             return inorder(root.left) + [root.val] + inorder(root.right) if root else []
+        
+#         nums = inorder(root)
+        
+#         total = 0
+#         for _, n in enumerate(nums):
+#             if low <= n <= high:
+#                 total += n
+        
+#         return total
