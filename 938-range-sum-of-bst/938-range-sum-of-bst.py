@@ -7,29 +7,43 @@
 class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         
-        # BFS
+        # DFS
         
-        from collections import deque
+        if not root:
+            return 0
         
-        queue = deque([root])
-        total = 0
+        if root.val > high:
+            return self.rangeSumBST(root.left, low, high)
         
-        while queue:
-            node = queue.popleft()
-            if low <= node.val <= high:
-                total += node.val
-                if node.left:
-                    queue.append(node.left)
-                if node.right:
-                    queue.append(node.right)
-            elif node.val < low: # must be on right
-                if node.right:
-                    queue.append(node.right)
-            else: 
-                if node.left:
-                    queue.append(node.left)
+        elif root.val < low:
+            return self.rangeSumBST(root.right, low, high)
         
-        return total
+        else:
+            return root.val + self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
+        
+#         # BFS
+        
+#         from collections import deque
+        
+#         queue = deque([root])
+#         total = 0
+        
+#         while queue:
+#             node = queue.popleft()
+#             if low <= node.val <= high:
+#                 total += node.val
+#                 if node.left:
+#                     queue.append(node.left)
+#                 if node.right:
+#                     queue.append(node.right)
+#             elif node.val < low: # must be on right
+#                 if node.right:
+#                     queue.append(node.right)
+#             else: 
+#                 if node.left:
+#                     queue.append(node.left)
+        
+#         return total
                 
                     
         
