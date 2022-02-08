@@ -1,7 +1,7 @@
 class Solution:
     def addDigits(self, num: int) -> int:
         
-        # one-line
+        # one-line (-1 % 9 = 8 in python!!!)
         return 0 if num == 0 else (num - 1) % 9 + 1
         
         # if num == 0:
