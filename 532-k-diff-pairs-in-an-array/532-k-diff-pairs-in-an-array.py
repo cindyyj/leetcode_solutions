@@ -12,7 +12,17 @@ class Solution:
                 res += 1
         
         return res
-        
+    
+# Explanation
+# Count the elements with Counter
+# If k > 0, for each element i, check if i + k exist.
+# If k == 0, for each element i, check if count[i] > 1
+
+
+# Explanation
+# Time O(N)
+# Space O(N)
+# https://leetcode.com/problems/k-diff-pairs-in-an-array/discuss/100135/JavaPython-Easy-Understood-Solution
         
 #         res = set()
 #         seen = set()
