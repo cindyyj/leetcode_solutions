@@ -16,46 +16,21 @@ class Solution:
         # 空间复杂度 O(N)  ： 最差情况下，递归深度达到 N ，系统使用 O(N)大小的额外空间。
 
 # 链接：https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/solution/236-er-cha-shu-de-zui-jin-gong-gong-zu-xian-hou-xu/
-
-        if not root or root == p or root == q:
+        
+        if not root or root == p or root == q: 
             return root
         
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
-        if not left and not right:
-            return 
-        if not left:
+        
+        if not left and not right: # if left is null and right is null
+            return
+        
+        if not left: # left is null, on right side
             return right
-        if not right:
+        
+        if not right: # right null, on left side
             return left
-        return root # if left and right
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-#         if not root or root == p or root == q: 
-#             return root
-        
-#         left = self.lowestCommonAncestor(root.left, p, q)
-#         right = self.lowestCommonAncestor(root.right, p, q)
-        
-#         if not left and not right: # if left is null and right is null
-#             return
-        
-#         if not left: # left is null, on right side
-#             return right
-        
-#         if not right: # right null, on left side
-#             return left
-        
-#         return root # if left and right 
+        return root # if left and right 
 
