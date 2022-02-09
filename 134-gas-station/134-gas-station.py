@@ -3,19 +3,19 @@ class Solution:
         
         # 假设油箱里的汽油可以为负数，找到最小的负数就是出发点
         # https://leetcode-cn.com/problems/gas-station/solution/jia-you-zhan-by-19216801-rt1i/
-        
-        n = len(gas)
-        cur_gas = min_gas = min_idx = 0 # start from 0
-        
-        for i in range(n):
-            cur_gas += gas[i] - cost[i]
-            if cur_gas < min_gas:
-                min_gas = cur_gas
-                min_idx = i + 1  # 这里i如果是n-1的话，说明当前汽油比0小，返回-1,不会返回错误的n。
-        
-        return min_idx if cur_gas >= 0 else -1
-        
-        
+        """ 
+        Every time a fail happens, accumulate the amount of gas that is needed to overcome the fail. 
+        After looping through the stations, if the gas left is more than gas needed, then we have a solution, otherwise not.
+        """
+
+        gas_left = gas_needed = start = 0
+        for i, (g, c) in enumerate(zip(gas, cost)):
+            gas_left += g - c
+            if gas_left < 0:
+                gas_needed -= gas_left
+                start = i + 1
+                gas_left = 0
+        return start if gas_left >= gas_needed else -1   
         
         
 #         n, spare, min_spare, min_idx = len(gas), 0, float('inf'), 0
@@ -27,4 +27,3 @@ class Solution:
 #                 min_idx = i 
             
 #         return -1 if spare < 0 else (min_idx + 1) % n
-        
