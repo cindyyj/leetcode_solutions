@@ -7,16 +7,17 @@ class Solution:
         Every time a fail happens, accumulate the amount of gas that is needed to overcome the fail. 
         After looping through the stations, if the gas left is more than gas needed, then we have a solution, otherwise not.
         """
-
         gas_left = gas_needed = start = 0
+        
         for i, (g, c) in enumerate(zip(gas, cost)):
             gas_left += g - c
             if gas_left < 0:
                 gas_needed -= gas_left
                 start = i + 1
                 gas_left = 0
-        return start if gas_left >= gas_needed else -1   
-        
+        return start if gas_left >= gas_needed else -1
+
+
         
 #         n, spare, min_spare, min_idx = len(gas), 0, float('inf'), 0
         
