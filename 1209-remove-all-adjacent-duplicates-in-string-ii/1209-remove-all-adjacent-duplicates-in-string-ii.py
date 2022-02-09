@@ -6,6 +6,7 @@ class Solution:
         # Loop through each item in s and adjust/remove top elements of both stacks.
         # build a return string using both of the stacks.
         # Simple Python3 implementation is below.
+        
         stack = [] # unique char
         counts = [] # counts
 
