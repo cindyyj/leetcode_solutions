@@ -11,7 +11,7 @@ class Solution:
         prev_end = points[0][1]
         
         for start, end in points:
-            if prev_end < start:
+            if prev_end < start:  # xstart and xend is burst by an arrow shot at x if xstart <= x <= xend
                 arrows += 1
                 prev_end = end
         
