@@ -7,11 +7,30 @@
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        # ((root.val - p.val) * (root.val - q.val)) > 0 means p, q must be on same side of tree
-        while ((root.val - p.val) * (root.val - q.val)) > 0:
-            root = root.left if p.val < root.val else root.right
+        # https://www.hrwhisper.me/algorithm-lowest-common-ancestor-of-a-binary-tree/
+        # 二叉树公共祖先专题
         
-        return root    
+        if not root:
+            return root
+        
+        if p.val > q.val:
+            return self.lowestCommonAncestor(root, q, p)
+        
+        if p.val <= root.val <= q.val:
+            return root
+        elif root.val < p.val:
+            return self.lowestCommonAncestor(root.right, p, q)
+        else: # root.val > q.val
+            return self.lowestCommonAncestor(root.left, p, q)
+        
+        
+        
+#         # method 2, iterative 
+#         # ((root.val - p.val) * (root.val - q.val)) > 0 means p, q must be on same side of tree
+#         while ((root.val - p.val) * (root.val - q.val)) > 0:
+#             root = root.left if p.val < root.val else root.right
+        
+#         return root    
         
 #         # method 1
 #         p_val = p.val
