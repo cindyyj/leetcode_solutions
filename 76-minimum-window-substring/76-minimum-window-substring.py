@@ -7,32 +7,64 @@ class Solution:
         if len(s) < len(t):
             return ""
         
-        # https://leetcode.com/problems/minimum-window-substring/discuss/26804/12-lines-Python
-        need = collections.Counter(t)            #hash table to store char frequency
-        missing = len(t)                         #total number of chars we care
-        start, end = 0, 0
-        i = 0
-        for j, char in enumerate(s, 1):          #index j from 1, enumerate(sequence, start=0) default start = 0, e.g.enumerate('abc', 1): 1,'a' 2 'b' 3 'c'
+        need = collections.Counter(t)
+        missing = len(t)
+        
+        start = end = i = 0
+        
+        for j, char in enumerate(s, 1):
             if need[char] > 0:
-                missing -= 1
+                missing -= 1           
+            need[char] -= 1
             
-            need[char] -= 1                      # if key not in counter, default val is 0. need = Counter('apple'), need['z'] = 0
-            
-            if missing == 0:                     #match all chars 步骤一：滑动窗口包含了所有T元素
-                while i < j and need[s[i]] < 0:  #remove chars to find the real start, 数量为负的就是不必要的元素，而数量为0表示刚刚好。
+            if missing == 0:
+                while i < j and need[s[i]] < 0:
                     need[s[i]] += 1
                     i += 1
-                    
-                # perfect window
-                if end == 0 or j-i < end-start:  #update window
+                
+                # update window
+                if end == 0 or (end - start + 1) > (j - i + 1):
                     start, end = i, j
                 
-                # need[s[i]] >= 0, 0 just right, else still need need[s[i]]
-                need[s[i]] += 1                  # 步骤三：i增加一个位置，寻找新的满足条件滑动窗口 make sure the first appearing char satisfies need[char]>0
-                missing += 1                     # we missed this first char, so add missing by 1
-                i += 1                           #update i to start+1 for next window
+                # move the start of window again
+                need[s[i]] += 1
+                missing += 1
+                i += 1
+                
         return s[start:end]
+                
         
+        
+        
+        
+#         # https://leetcode.com/problems/minimum-window-substring/discuss/26804/12-lines-Python
+#         need = collections.Counter(t)            #hash table to store char frequency
+#         missing = len(t)                         #total number of chars we care
+#         start, end = 0, 0
+#         i = 0
+#         for j, char in enumerate(s, 1):          #index j from 1, enumerate(sequence, start=0) default start = 0, e.g.enumerate('abc', 1): 1,'a' 2 'b' 3 'c'
+#             if need[char] > 0:
+#                 missing -= 1
+            
+#             need[char] -= 1                      # if key not in counter, default val is 0. need = Counter('apple'), need['z'] = 0
+            
+#             if missing == 0:                     #match all chars 步骤一：滑动窗口包含了所有T元素
+#                 while i < j and need[s[i]] < 0:  #remove chars to find the real start, 数量为负的就是不必要的元素，而数量为0表示刚刚好。
+#                     need[s[i]] += 1
+#                     i += 1
+                    
+#                 # perfect window
+#                 if end == 0 or j-i < end-start:  #update window
+#                     start, end = i, j
+                
+#                 # need[s[i]] >= 0, 0 just right, else still need need[s[i]]
+#                 need[s[i]] += 1                  # 步骤三：i增加一个位置，寻找新的满足条件滑动窗口 make sure the first appearing char satisfies need[char]>0
+#                 missing += 1                     # we missed this first char, so add missing by 1
+#                 i += 1                           #update i to start+1 for next window
+                
+#         return s[start:end]
+
+# https://leetcode-cn.com/problems/minimum-window-substring/solution/tong-su-qie-xiang-xi-de-miao-shu-hua-dong-chuang-k/        
 #         '''
 #         如果hs哈希表中包含ht哈希表中的所有字符，并且对应的个数都不小于ht哈希表中各个字符的个数，那么说明当前的窗口是可行的，可行中的长度最短的滑动窗口就是答案。
 #         '''
