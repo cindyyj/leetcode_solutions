@@ -1,32 +1,59 @@
 class Solution:
-    def inarea(self, grid, r, c):
-        return (0 <= r < len(grid)) and (0 <= c < len(grid[0]))
-    
-    def area(self, grid, r, c):
-        if not self.inarea(grid, r, c):
-            return 0
-        
-        if grid[r][c] != 1:
-            return 0
-        else: # grid[r][c] == 1
-            grid[r][c] = 2
-            
-        return (1 + 
-                self.area(grid, r - 1, c) + 
-                self.area(grid, r + 1, c) + 
-                self.area(grid, r, c - 1) + 
-                self.area(grid, r, c + 1)               
-               )
-        
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        maxarea = 0 
-        for r in range(len(grid)):
-            for c in range(len(grid[0])):
-                maxarea = max(maxarea, self.area(grid, r, c))
         
+        # time complexity: O(R*C) , number of rows * number of columns
+        # no island? 
+        
+        rows, cols = len(grid), len(grid[0])
+        def area(r, c):
+            # if island and index within grid
+            if 0 <= r < rows and 0 <= c < cols and grid[r][c]:
+                grid[r][c] = 0
+                return (1 + 
+                       area(r - 1, c) +
+                       area(r + 1, c) +
+                       area(r, c - 1) +
+                       area(r, c + 1) 
+                       )
+            return 0
+        
+        maxarea = 0
+        for r in range(rows):
+            for c in range(cols):
+                maxarea = max(maxarea, area(r, c))
+                
         return maxarea
+            
+            
+# # --------------------------- METHOD 1 ---------------------------
+#     def inarea(self, grid, r, c):
+#         return (0 <= r < len(grid)) and (0 <= c < len(grid[0]))
     
+#     def area(self, grid, r, c):
+#         if not self.inarea(grid, r, c):
+#             return 0
+        
+#         if grid[r][c] != 1:
+#             return 0
+#         else: # grid[r][c] == 1
+#             grid[r][c] = 2
+            
+#         return (1 + 
+#                 self.area(grid, r - 1, c) + 
+#                 self.area(grid, r + 1, c) + 
+#                 self.area(grid, r, c - 1) + 
+#                 self.area(grid, r, c + 1)               
+#                )
+        
+#     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+#         maxarea = 0 
+#         for r in range(len(grid)):
+#             for c in range(len(grid[0])):
+#                 maxarea = max(maxarea, self.area(grid, r, c))
+        
+#         return maxarea
     
+# # --------------------------- METHOD 2 ---------------------------    
 #     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         
 #         # time complexity: O(R*C) , number of rows * number of columns
