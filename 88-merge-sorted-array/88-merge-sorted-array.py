@@ -3,6 +3,25 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
+# --------------------------- METHOD 0 ---------------------------    
+        # 3 pointers (start from end)
+        
+        p1 = m - 1
+        p2 = n - 1
+        
+        for p in range( n + m - 1, -1, -1):
+            if p2 < 0:
+                break
+            if p1 >= 0 and nums1[p1] > nums2[p2]:
+                nums1[p] = nums1[p1]
+                p1 -= 1
+            else:
+                nums1[p] = nums2[p2]
+                p2 -= 1
+
+
+
+
 # # --------------------------- METHOD 1 ---------------------------    
 #         # Simply overwrite the end of the first list(nums1) with the second list(nums2), and then sort nums1.
 #         # Python's built in sort method is a spin off of merge sort called Timsort, more information here - https://en.wikipedia.org/wiki/Timsort.
@@ -34,26 +53,26 @@ class Solution:
 #         nums1[:] = res
 
 # --------------------------- METHOD 3 ---------------------------        
-        # two pointers 1 , Time & Space: O(m+n)
-        i = j = 0
-        res = []
+#         # two pointers 1 , Time & Space: O(m+n)
+#         i = j = 0
+#         res = []
         
-        while i < m or j < n:
-            if i == m:
-                res.append(nums2[j])
-                j += 1
-            elif j == n:
-                res.append(nums1[i])
-                i += 1
-            elif nums1[i] <= nums2[j]:
-                res.append(nums1[i])
-                i += 1
-            else: 
-                res.append(nums2[j])
-                j += 1                
+#         while i < m or j < n:
+#             if i == m:
+#                 res.append(nums2[j])
+#                 j += 1
+#             elif j == n:
+#                 res.append(nums1[i])
+#                 i += 1
+#             elif nums1[i] <= nums2[j]:
+#                 res.append(nums1[i])
+#                 i += 1
+#             else: 
+#                 res.append(nums2[j])
+#                 j += 1                
 
-        # change nums1 in place
-        nums1[:] = res        
+#         # change nums1 in place
+#         nums1[:] = res        
         
 # # --------------------------- METHOD 4 ---------------------------        
         
