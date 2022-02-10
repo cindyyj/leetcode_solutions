@@ -4,7 +4,7 @@ class Solution:
         
         def sink(r, c):
             if 0 <= r < rows and 0 <= c < cols and grid[r][c] == '1':
-                grid[r][c] = 0
+                grid[r][c] = '0'
                 
                 # beautiful example of map !!!
                 # sink connected isaland
