@@ -1,5 +1,7 @@
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        
+        # time complexity: O(R*C) , number of rows * number of columns
         def area(row, col):
             if 0 <= row < len(grid) and 0 <= col < len(grid[0]) and grid[row][col]:
                 # mark as visited
