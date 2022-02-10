@@ -2,6 +2,7 @@ class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         def area(row, col):
             if 0 <= row < len(grid) and 0 <= col < len(grid[0]) and grid[row][col]:
+                # mark as visited
                 grid[row][col] = 0
                 return 1 + area(row - 1, col) + area(row + 1, col) + area(row, col - 1) + area(row, col + 1)
             return 0
