@@ -1,5 +1,9 @@
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
+        
+        if not grid:
+            return 0
+        
         rows, cols = len(grid), len(grid[0])
         
         def sink(r, c):
@@ -17,7 +21,15 @@ class Solution:
                 return 1
             return 0
         
-        return sum(sink(r, c) for r in range(rows) for c in range(cols))
+        cnt = 0
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == '1':
+                    sink(r, c)
+                    cnt += 1
+        return cnt
+        
+        # return sum(sink(r, c) for r in range(rows) for c in range(cols))
     
     # def numIslands(self, grid: List[List[str]]) -> int:
     #     def sink(i, j):
