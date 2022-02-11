@@ -23,17 +23,14 @@ class Solution(object):
         for r in range(self.ROWS):
             for c in range(self.COLS):
                 if board[r][c] == 'O':   board[r][c] = 'X'  # captured
-                elif board[r][c] == 'E': board[r][c] = 'O'  # escaped
+                elif board[r][c] == 'A': board[r][c] = 'O'  # escaped
 
 
-    def DFS(self, board, row, col):
-        if board[row][col] != 'O':
-            return
-        board[row][col] = 'E'
-        if col < self.COLS-1: self.DFS(board, row, col+1)
-        if row < self.ROWS-1: self.DFS(board, row+1, col)
-        if col > 0: self.DFS(board, row, col-1)
-        if row > 0: self.DFS(board, row-1, col)
+    def DFS(self, board, r, c):
+        if 0 <= r < self.ROWS and 0 <= c < self.COLS and board[r][c] == "O":
+            board[r][c] = "A" # connected to 'O'   
+            for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                self.DFS(board, r+dx, c+dy)
             
 # class Solution:
 #     def solve(self, board: List[List[str]]) -> None:
