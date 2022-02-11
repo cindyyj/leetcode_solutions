@@ -1,6 +1,8 @@
 class Solution:
     def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:
         
+        # time complexity: O(n)
+        # space: O(min(n, k))
         if t < 0: 
             return False
         
