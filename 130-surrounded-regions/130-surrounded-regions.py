@@ -1,79 +1,46 @@
-class Solution(object):
-    def solve(self, board):
+           
+class Solution:
+    def solve(self, board: List[List[str]]) -> None:
         """
-        :type board: List[List[str]]
-        :rtype: None Do not return anything, modify board in-place instead.
+        Do not return anything, modify board in-place instead.
         """
+        
         if not board or not board[0]:
-            return
-
-        self.ROWS = len(board)
-        self.COLS = len(board[0])
-
+            return 
+        
+        self.rows, self.cols = len(board), len(board[0])
+        
         # Step 1). retrieve all border cells
         from itertools import product
-        borders = list(product(range(self.ROWS), [0, self.COLS-1])) \
-                + list(product([0, self.ROWS-1], range(self.COLS)))
+        borders = (list(product(range(self.rows), [0, self.cols - 1])) + 
+                    list(product([0, self.rows - 1], range(self.cols))))
 
+        
+        def dfs(board, r, c):
+            if 0 <= r < self.rows and 0 <= c < self.cols and board[r][c] == "O":
+                board[r][c] = "A" # connected to 'O'   
+                for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                    dfs(board, r+dx, c+dy)
+                
         # Step 2). mark the "escaped" cells, with any placeholder, e.g. 'E'
-        for row, col in borders:
-            self.DFS(board, row, col)
-
+        for r, c in borders:
+            self.dfs(board, r, c)
+            
         # Step 3). flip the captured cells ('O'->'X') and the escaped one ('E'->'O')
-        for r in range(self.ROWS):
-            for c in range(self.COLS):
-                if board[r][c] == 'O':   board[r][c] = 'X'  # captured
-                elif board[r][c] == 'A': board[r][c] = 'O'  # escaped
+        
+        for r in range(self.rows):
+            for c in range(self.cols):
+                if board[r][c] == "O":   board[r][c] = "X"
+                elif board[r][c] == "A": board[r][c] = "O"
 
-
-    def DFS(self, board, r, c):
-        if 0 <= r < self.ROWS and 0 <= c < self.COLS and board[r][c] == "O":
+    def dfs(self, board, r, c):
+        if 0 <= r < self.rows and 0 <= c < self.cols and board[r][c] == "O":
             board[r][c] = "A" # connected to 'O'   
             for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-                self.DFS(board, r+dx, c+dy)
-            
-# class Solution:
-#     def solve(self, board: List[List[str]]) -> None:
-#         """
-#         Do not return anything, modify board in-place instead.
-#         """
-        
-#         if not board or not board[0]:
-#             return 
-        
-#         self.rows, self.cols = len(board), len(board[0])
-        
-#         # Step 1). retrieve all border cells
-#         from itertools import product
-#         borders = (list(product(range(self.rows), [0, self.cols - 1])) + 
-#                     list(product(range(self.cols), [0, self.rows - 1])))
-
-        
-#         def dfs(board, r, c):
-#             if 0 <= r < self.rows and 0 <= c < self.cols and board[r][c] == "O":
-#                 board[r][c] = "A" # connected to 'O'   
-#                 for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-#                     dfs(board, r+dx, c+dy)
+                self.dfs(board, r+dx, c+dy)
                 
-#         # Step 2). mark the "escaped" cells, with any placeholder, e.g. 'E'
-#         for r, c in borders:
-#             self.dfs(board, r, c)
-            
-#         # Step 3). flip the captured cells ('O'->'X') and the escaped one ('E'->'O')
-        
-#         for r in range(self.rows):
-#             for c in range(self.cols):
-#                 if board[r][c] == "O":   board[r][c] = "X"
-#                 elif board[r][c] == "A": board[r][c] = "O"
-
-#     def dfs(self, board, r, c):
-#         if 0 <= r < self.rows and 0 <= c < self.cols and board[r][c] == "O":
-#             board[r][c] = "A" # connected to 'O'   
-#             for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-#                 self.dfs(board, r+dx, c+dy)
-                
-#             # Generating a list with a list comprehension, [function(x) for x in iterable]
-#             # list(map(dfs, board, [r + 1, r - 1, r, r], [c, c, c + 1, c - 1])) 
+            # Generating a list with a list comprehension, [function(x) for x in iterable]
+            # list(map(dfs, board, [r + 1, r - 1, r, r], [c, c, c + 1, c - 1])) 
 
 #         if not board:
 #             return 
