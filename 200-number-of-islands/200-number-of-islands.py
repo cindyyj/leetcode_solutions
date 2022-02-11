@@ -1,43 +1,53 @@
 class Solution:
     def numIslands(self, grid):
+        # https://leetcode.com/problems/number-of-islands/discuss/56349/7-lines-Python-~14-lines-Java
+        # StefanPochmann
+        """
+        Hi, if you can't run the python code correctly, alter this part list(map(sink, (i+1, i-1, i, i), (j, j, j+1, j-1))).
+        In python3, map return an iterator, which means, technically, it doesn't really compute the result (invoke the function) until you use it.
+        So the original code in python3 just counts the number of '1', instead of DFS searching.
+        Many functions become "lazy" in python3, but list can call the iterator to make them work out.
+        """      
+        
         def sink(i, j):
             if 0 <= i < len(grid) and 0 <= j < len(grid[i]) and grid[i][j] == '1':
                 grid[i][j] = '0'
-                map(sink, (i+1, i-1, i, i), (j, j, j+1, j-1))
+                list(map(sink, (i+1, i-1, i, i), (j, j, j+1, j-1)))
                 return 1
             return 0
         return sum(sink(i, j) for i in range(len(grid)) for j in range(len(grid[i])))
 
 
-    def numIslands(self, grid: List[List[str]]) -> int:
+#     def numIslands(self, grid: List[List[str]]) -> int:
         
-        if not grid:
-            return 0
+#         if not grid:
+#             return 0
         
-        rows, cols = len(grid), len(grid[0])
+#         rows, cols = len(grid), len(grid[0])
         
-        def sink(r, c):
-            if 0 <= r < rows and 0 <= c < cols and grid[r][c] == '1':
-                grid[r][c] = '0'
+#         def sink(r, c):
+#             if 0 <= r < rows and 0 <= c < cols and grid[r][c] == '1':
+#                 grid[r][c] = '0'
+#                 map(sink, (r+1, r-1, r, r), (c, c, c+1, c-1))
                 
-                # beautiful example of map !!!
-                # sink connected isaland
-                # map(sink, (i+1, i-1, i, i), (j, j, j+1, j-1))
-                sink(r + 1, c)
-                sink(r - 1, c)
-                sink(r, c + 1)
-                sink(r, c - 1)
+#                 # beautiful example of map !!!
+#                 # sink connected isaland
+
+#                 # sink(r + 1, c)
+#                 # sink(r - 1, c)
+#                 # sink(r, c + 1)
+#                 # sink(r, c - 1)
                 
-                return 1
-            return 0
+#                 return 1
+#             return 0
         
-        cnt = 0
-        for r in range(rows):
-            for c in range(cols):
-                if grid[r][c] == '1':
-                    sink(r, c)
-                    cnt += 1
-        return cnt
+#         cnt = 0
+#         for r in range(rows):
+#             for c in range(cols):
+#                 if grid[r][c] == '1':
+#                     sink(r, c)
+#                     cnt += 1
+#         return cnt
         
         # return sum(sink(r, c) for r in range(rows) for c in range(cols))
     
