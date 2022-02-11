@@ -11,7 +11,9 @@ class Solution:
         
         def dfs(r, c):
             if 0 <= r < rows and 0 <= c < cols and board[r][c] == "O":
-                board[r][c] = "A" # connected to 'O'            
+                board[r][c] = "A" # connected to 'O'       
+                # map is lazy function in python3
+                # Many functions become "lazy" in python3, but list can call the iterator to make them work out.
                 list(map(dfs, [r + 1, r - 1, r, r], [c, c, c + 1, c - 1]))            
         
         # mark Os connected to board O
