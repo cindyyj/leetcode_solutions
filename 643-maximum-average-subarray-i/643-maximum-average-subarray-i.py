@@ -13,4 +13,7 @@ class Solution:
                 total -= nums[start]
                 start += 1
             
-        return maxavg                
+        return maxavg            
+    
+    # https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/yi-ge-mo-ban-miao-sha-10dao-zhong-deng-n-sb0x/
+    # [滑动窗口真滴简单!] 闪电五连鞭带你秒杀12道中档题 (附详情解析)
