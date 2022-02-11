@@ -38,9 +38,7 @@ class Solution:
             board[r][c] = "A" # connected to 'O'   
             for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
                 self.dfs(board, r+dx, c+dy)
-                
-            # Generating a list with a list comprehension, [function(x) for x in iterable]
-            # list(map(dfs, board, [r + 1, r - 1, r, r], [c, c, c + 1, c - 1])) 
+
 
 #         if not board:
 #             return 
