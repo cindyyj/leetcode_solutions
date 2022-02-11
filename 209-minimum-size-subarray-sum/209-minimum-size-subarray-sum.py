@@ -16,7 +16,9 @@ class Solution:
                 minlen = min(minlen, end - start + 1)
                 total -= nums[start]
                 start += 1
-            
+        
+        if minlen == float('inf'):
+            return 0
         return minlen
         
         
