@@ -3,7 +3,7 @@ from collections import Counter
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
         # two pointers
-        
+        # time complexity O(ns), space O(1), k <= 26
         ns, np = len(s), len(p)
         if ns < np:
             return []
