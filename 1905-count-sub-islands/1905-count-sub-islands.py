@@ -33,24 +33,16 @@ class Solution:
         
         if not rows or not cols:
             return 0
+                
         
-        # def dfs(r, c):
-        #     if r<0 or r>=m or c<0 or c>=n or grid2[r][c]==0:
-        #         return
-        #     # if 0 <= r < rows and 0 <= c < cols and grid2[r][c] == 1:
-        #     grid2[r][c] == 0 
-        #     for dr, dc in [[0, 1], [1, 0], [-1, 0], [0, -1]]:
-        #         dfs(r + dr, c + dc)
-        def dfs(i,j):
-            if i<0 or i>=m or j<0 or j>=n or grid2[i][j]==0:
-                return
+        def dfs(r, c):
+            if 0 <= r < rows and 0 <= c < cols and grid2[r][c] == 1:
+                grid2[r][c] = 0 
 
-            grid2[i][j]=0
-            dfs(i+1,j)
-            dfs(i,j+1)
-            dfs(i,j-1)
-            dfs(i-1,j)
-            
+                for dr, dc in [[0, 1], [1, 0], [-1, 0], [0, -1]]:
+                    dfs(r + dr, c + dc)
+        
+
         # removing all the non-common sub-islands
         for i in range(rows):
             for j in range(cols):
