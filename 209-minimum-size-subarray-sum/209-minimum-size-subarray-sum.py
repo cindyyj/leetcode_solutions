@@ -2,23 +2,41 @@ class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         
         # sliding window, time O(n)
+        if sum(nums) < target:
+            return 0
         
-        if not nums:
-            return 0 
+        minlen = float('inf')
+        start = end = total = 0
         
-        start = end = 0
-        total = 0
-        n = len(nums)
-        ans = n + 1
-        
-        for end in range(n):
+        for end in range(len(nums)):
             total += nums[end]
+            
+            # total >= target
             while total >= target:
-                ans = min(ans, end - start + 1)
+                minlen = min(minlen, end - start + 1)
                 total -= nums[start]
                 start += 1
+            
+        return minlen
         
-        return 0 if ans == n + 1 else ans
+        
+        
+#         if not nums:
+#             return 0 
+        
+#         start = end = 0
+#         total = 0
+#         n = len(nums)
+#         ans = n + 1
+        
+#         for end in range(n):
+#             total += nums[end]
+#             while total >= target:
+#                 ans = min(ans, end - start + 1)
+#                 total -= nums[start]
+#                 start += 1
+        
+#         return 0 if ans == n + 1 else ans
         
         
         
