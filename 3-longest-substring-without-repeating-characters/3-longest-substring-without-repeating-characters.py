@@ -1,6 +1,8 @@
 from collections import Counter
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        
+        # https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/yi-ge-mo-ban-miao-sha-10dao-zhong-deng-n-sb0x/
         if not s:
             return 0
         
