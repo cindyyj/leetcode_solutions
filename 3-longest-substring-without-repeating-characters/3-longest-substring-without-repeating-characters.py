@@ -3,6 +3,9 @@ class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         
         # https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/yi-ge-mo-ban-miao-sha-10dao-zhong-deng-n-sb0x/
+        # hashmap 
+        # time, O(n), space: O(min(m, n)), m is size of charset, n is len(s)
+        
         if not s:
             return 0
         
