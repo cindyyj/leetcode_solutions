@@ -6,10 +6,14 @@ class Solution:
         freq = {}
         for char in s:
             freq[char] = freq.get(char, 0) + 1
-            
-        sort_freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
         
-        return ''.join(x[0]*x[1] for x in sort_freq)
+        sort_freq = sorted(freq, key=freq.get, reverse=True)
+        return ''.join(char * freq[char] for char in sort_freq)
+    
+        # sort_freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+        # return ''.join(x[0] * x[1] for x in freq.iterms())
+        
+
         
         # using Counter 
         # time O(nlogn), space O(n)
