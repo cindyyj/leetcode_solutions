@@ -1,18 +1,32 @@
 class MyHashSet:
-    # BST as bucket
+    # 不定长拉链数组
+
     def __init__(self):
-        self.set = [False] * 1000001        
-
-    def add(self, key: int) -> None:
-        self.set[key] = True
+        """
+        Initialize your data structure here.
+        """
+        self.cap = 10000
+        self.size = 0
+        self.table = [[None] * self.cap]
         
-    def remove(self, key: int) -> None:
-        self.set[key] = False        
+    def hash(self, key):
+        return key % self.cap
 
-    def contains(self, key: int) -> bool:
-        return self.set[key]
+    def add(self, key):
+        if self.contains(key):
+            return
+        hashkey = self.hash(key)
+        self.table[hashkey].append(key)
 
+    def remove(self, key):
+        if not self.contains(key):
+            return        
+        hash_key = self.hash(key)
+        self.table[hash_key].remove(key)
 
+    def contains(self, key):
+        hashkey = self.hash(key)
+        return key in self.table[hashkey]
 
     """
 1. 超大数组
@@ -30,6 +44,22 @@ class MyHashSet:
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
     """
+
+class MyHashSet:
+    # large array as bucket
+    def __init__(self):
+        self.set = [False] * 1000001        
+
+    def add(self, key: int) -> None:
+        self.set[key] = True
+        
+    def remove(self, key: int) -> None:
+        self.set[key] = False        
+
+    def contains(self, key: int) -> bool:
+        return self.set[key]
+    
+    
 # Your MyHashSet object will be instantiated and called as such:
 # obj = MyHashSet()
 # obj.add(key)
