@@ -10,9 +10,12 @@ class Solution:
         # sort_freq = sorted(freq, key=freq.get, reverse=True)
         # return ''.join(char * freq[char] for char in sort_freq)
     
-        sort_freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
-        return ''.join(x[0] * x[1] for x in sort_freq)
-        
+#         # sort_freq here is a sorted tuple (key, value)
+#         sort_freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+#         return ''.join(x[0] * x[1] for x in sort_freq)
+    
+        sort_freq = dict(sorted(freq.items(), key=lambda x: x[1], reverse=True))
+        return ''.join(x[0] * x[1] for x in sort_freq.items())      
 
         
         # using Counter 
