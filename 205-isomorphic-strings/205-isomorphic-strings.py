@@ -11,33 +11,33 @@ class Solution:
             d2[val] += [i]
         return sorted(d1.values()) == sorted(d2.values())
         
-# --------------------------- METHOD 4 ---------------------------  
-        s2t, t2s = {}, {}
-        for c1, c2 in zip(s, t):
-            # Case 1: No mapping exists in either of the dictionaries
-            if c1 not in s2t and c2 not in t2s:
-                s2t[c1] = c2
-                t2s[c2] = c1
+# # --------------------------- METHOD 4 ---------------------------  
+#         s2t, t2s = {}, {}
+#         for c1, c2 in zip(s, t):
+#             # Case 1: No mapping exists in either of the dictionaries
+#             if c1 not in s2t and c2 not in t2s:
+#                 s2t[c1] = c2
+#                 t2s[c2] = c1
                 
-            # Case 2: Ether mapping doesn't exist in one of the dictionaries or Mapping exists and
-            # it doesn't match in either of the dictionaries or both            
+#             # Case 2: Ether mapping doesn't exist in one of the dictionaries or Mapping exists and
+#             # it doesn't match in either of the dictionaries or both            
             
-            elif s2t.get(c1) != c2 or t2s.get(c2) != c1:
-                return False
+#             elif s2t.get(c1) != c2 or t2s.get(c2) != c1:
+#                 return False
         
-        return True
+#         return True
     
 
-# --------------------------- METHOD 3 ---------------------------  
-        return list(map(s.find, s)) == list(map(t.find, t))
+# # --------------------------- METHOD 3 ---------------------------  
+#         return list(map(s.find, s)) == list(map(t.find, t))
     
-# --------------------------- METHOD 2 ---------------------------  
-        # string find() 
-        # find() method returns the index of first occurrence of the substring (if found). If not found, it returns -1.
-        return [s.find(i) for i in s] == [t.find(j) for j in t]
+# # --------------------------- METHOD 2 ---------------------------  
+#         # string find() 
+#         # find() method returns the index of first occurrence of the substring (if found). If not found, it returns -1.
+#         return [s.find(i) for i in s] == [t.find(j) for j in t]
         
-# --------------------------- METHOD 1, one liner ---------------------------        
-        return len(set(s)) == len(set(t)) == len(set(zip(s,t)))
+# # --------------------------- METHOD 1, one liner ---------------------------        
+#         return len(set(s)) == len(set(t)) == len(set(zip(s,t)))
         
         # # mistake!!! 可能有重复的字母 "aaabbbba"
         # return sorted(Counter(s).values()) == sorted(Counter(t).values())
