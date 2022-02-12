@@ -1,8 +1,14 @@
 from collections import Counter
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
+
         
-# # --------------------------- METHOD 1, one liner ---------------------------        
+# --------------------------- METHOD 2 ---------------------------  
+        # string find() 
+        # find() method returns the index of first occurrence of the substring (if found). If not found, it returns -1.
+        return [s.find(i) for i in s] == [t.find(j) for j in t]
+        
+# --------------------------- METHOD 1, one liner ---------------------------        
         return len(set(s)) == len(set(t)) == len(set(zip(s,t)))
         
         # # mistake!!! 可能有重复的字母 "aaabbbba"
@@ -37,8 +43,7 @@ class Solution:
 #             d2[ord(val)].append(i)
 #         return sorted(d1) == sorted(d2)
     
-#     def isIsomorphic3(self, s, t):
-#         return len(set(zip(s, t))) == len(set(s)) == len(set(t))
+
     
 #     def isIsomorphic4(self, s, t): 
 #         return [s.find(i) for i in s] == [t.find(j) for j in t]
