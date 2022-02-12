@@ -1,7 +1,16 @@
-from collections import Counter
+from collections import Counter, defaultdict
 
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
+# --------------------------- METHOD 5 ---------------------------  
+
+        d1, d2 = defaultdict(list), defaultdict(list)
+        for i, val in enumerate(s):
+            d1[val] += [i]
+        for i, val in enumerate(t):
+            d2[val] += [i]
+        return sorted(d1.values()) == sorted(d2.values())
+        
 # --------------------------- METHOD 4 ---------------------------  
         s2t, t2s = {}, {}
         for c1, c2 in zip(s, t):
@@ -35,16 +44,7 @@ class Solution:
         
         # https://leetcode.com/problems/isomorphic-strings/discuss/57941/Python-different-solutions-(dictionary-etc).
         
-#     def isIsomorphic(self, s, t):
-#         s2t, t2s = {}, {}
-#         for i in range(len(s)):
-#             if s[i] in s2t and s2t[s[i]] != t[i]:
-#                 return False
-#             if t[i] in t2s and t2s[t[i]] != s[i]:
-#                 return False
-#             s2t[s[i]] = t[i]
-#             t2s[t[i]] = s[i]
-#         return True
+
     
 #     def isIsomorphic1(self, s, t):
 #         d1, d2 = {}, {}
