@@ -5,10 +5,10 @@ class Solution:
 # --------------------------- METHOD 5 ---------------------------  
 
         d1, d2 = defaultdict(list), defaultdict(list)
-        for i, val in enumerate(s):
-            d1[val] += [i]
-        for i, val in enumerate(t):
-            d2[val] += [i]
+        for i, char in enumerate(s):
+            d1[char] += [i]
+        for i, char in enumerate(t):
+            d2[char] += [i]
         return sorted(d1.values()) == sorted(d2.values())
         
 # # --------------------------- METHOD 4 ---------------------------  
