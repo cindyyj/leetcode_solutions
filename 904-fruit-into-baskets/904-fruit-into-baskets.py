@@ -5,6 +5,7 @@ class Solution:
         # fruits[i] is the type of fruit the ith tree produces! not the number of fruits! 
         # longest subsequence that have 2 distinct types
         # pick one fruit from tree, --> maximum subarray length = max fruits
+        # Longest Substring with at most 2 distinct characters
         
         maxl = 0
         start = 0
