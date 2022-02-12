@@ -14,6 +14,9 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 - https://github.com/chefyuan/algorithm-base
 
 
+## [滑动窗口真滴简单!] 闪电五连鞭带你秒杀12道中档题 (附详情解析)
+- https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/yi-ge-mo-ban-miao-sha-10dao-zhong-deng-n-sb0x/
+
 ### Data Structures:
 - Linked list: 234, good review on all tricks https://github.com/cindyyj/leetcode_solutions/blob/daf32b43d167736650092850dd06782ae07aba33/234-palindrome-linked-list/234-palindrome-linked-list.py
 
