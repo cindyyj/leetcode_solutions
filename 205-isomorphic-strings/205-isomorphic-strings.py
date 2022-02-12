@@ -2,7 +2,9 @@ from collections import Counter
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
 
-        
+# --------------------------- METHOD 3 ---------------------------  
+        return list(map(s.find, s)) == list(map(t.find, t))
+    
 # --------------------------- METHOD 2 ---------------------------  
         # string find() 
         # find() method returns the index of first occurrence of the substring (if found). If not found, it returns -1.
@@ -42,11 +44,6 @@ class Solution:
 #         for i, val in enumerate(t):
 #             d2[ord(val)].append(i)
 #         return sorted(d1) == sorted(d2)
-    
-
-    
-#     def isIsomorphic4(self, s, t): 
-#         return [s.find(i) for i in s] == [t.find(j) for j in t]
     
 #     def isIsomorphic5(self, s, t):
 #         return map(s.find, s) == map(t.find, t)
