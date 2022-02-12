@@ -2,6 +2,17 @@ from collections import Counter
 
 class Solution:
     def frequencySort(self, s: str) -> str:
+        # use built-in function only 
+        freq = {}
+        for char in s:
+            freq[char] = freq.get(char, 0) + 1
+            
+        sort_freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
+        
+        return ''.join(x[0]*x[1] for x in sort_freq)
+        
+        # using Counter 
+        # time O(nlogn), space O(n)
         # Strings are Immutable!
         counts = Counter(s)
         
