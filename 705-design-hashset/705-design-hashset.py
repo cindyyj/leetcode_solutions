@@ -1,12 +1,10 @@
 class MyHashSet:
     # 不定长拉链数组
-
     def __init__(self):
         """
         Initialize your data structure here.
         """
         self.cap = 10000
-        self.size = 0
         self.table = [[None] * self.cap]
         
     def hash(self, key):
