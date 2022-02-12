@@ -1,6 +1,6 @@
 
 class MyHashMap:
-    # Hash + chaining
+    # Hash + chaining dictionary
     def __init__(self):
         self.buckets =  1000
         # The alternative, [{}] * n creates a list of length n with only one dictionary, referenced n times. 
@@ -17,6 +17,7 @@ class MyHashMap:
             self.data[hashkey][key] = value
         
         # no add(), append(), or insert() method you can use to add an item to a dictionary in Python
+        # Instead, you add an item to a dictionary by inserting a new index key into the dictionary, then assigning it a particular value.
         self.data[hashkey][key] = value
         
     def get(self, key: int) -> int:
