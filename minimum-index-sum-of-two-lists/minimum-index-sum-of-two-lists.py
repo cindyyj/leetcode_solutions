@@ -1,5 +1,7 @@
 class Solution:
     def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
+        d ={r: list1.index(r) + list2.index(r) for r in set(list1) & set(list2)}
+        return [r for r in d if d[r] == min(d.values())]
         
         # time O(l1+l2), space(min(l1,l2)* x); x average string length
         
