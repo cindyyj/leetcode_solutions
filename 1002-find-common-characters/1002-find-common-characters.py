@@ -2,6 +2,7 @@ from collections import Counter
 from functools import reduce
 from operator import and_
 
+# nice example of reduce!!!
 # class Solution:
 #     def commonChars(self, A: List[str]) -> List[str]:
 #         return list(reduce(and_, map(Counter, A)).elements())
