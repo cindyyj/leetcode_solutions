@@ -1,19 +1,37 @@
 class Logger:
-
     def __init__(self):
-        self.msg_dict = {}
-        
+        # queue of messages received in last 10 seconds
+        self.win = collections.deque()
 
     def shouldPrintMessage(self, timestamp: int, message: str) -> bool:
-        if message not in self.msg_dict:
-            self.msg_dict[message] = timestamp
-            return True
+        # delete older elements to keep window of 10 seconds
+        while self.win and timestamp - self.win[0][0] >= 10: 
+            self.win.popleft()
         
-        if timestamp - self.msg_dict[message] >= 10:
-            self.msg_dict[message] = timestamp
-            return True
-        else:
+        # if message is found in window, cannot print it
+        if any(message in msg for t, msg in self.win): 
             return False
+        
+        # if not in window, append to queue
+        self.win.append((timestamp, message))
+        return True
+
+# class Logger:
+
+#     def __init__(self):
+#         self.msg_dict = {}
+        
+
+#     def shouldPrintMessage(self, timestamp: int, message: str) -> bool:
+#         if message not in self.msg_dict:
+#             self.msg_dict[message] = timestamp
+#             return True
+        
+#         if timestamp - self.msg_dict[message] >= 10:
+#             self.msg_dict[message] = timestamp
+#             return True
+#         else:
+#             return False
 
 """
 case 1). we have never seen the message before.
