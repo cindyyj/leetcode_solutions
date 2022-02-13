@@ -18,6 +18,9 @@ class Logger:
 """
 case 1). we have never seen the message before.
 case 2). we have seen the message before, and it was printed more than 10 seconds ago.
+
+hashmap solution, time O(1) lookup and update hashtable is constant time. space O(m), m is size of all msgs
+    cons: But for a Logger, probably it not that practical. Since your HashMap soon will blew up ....
 """
 # Your Logger object will be instantiated and called as such:
 # obj = Logger()
