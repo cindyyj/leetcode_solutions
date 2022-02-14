@@ -16,6 +16,7 @@ class Solution:
         def dfs(root):
             if not root:
                 return "null"
+            # important to add space between nodes!!!
             key = str(root.val) + ' ' + dfs(root.left) + ' ' + dfs(root.right)
             hashmap[key].append(root)
             return key
