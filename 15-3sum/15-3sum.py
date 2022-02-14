@@ -1,21 +1,20 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:   
+        
         res = []
         nums.sort()
         
-        if len(nums) < 3:
-            return []        
-
         for i in range(len(nums)):
             if nums[i] > 0:
                 break
-            if i == 0 or nums[i - 1] != nums[i]:
+            if i == 0 or nums[i] != nums[i - 1]:
                 self.twoSum(nums, i, res)
         
-        return res          
-        
+        return res
+    
     def twoSum(self, nums, i, res):
-        l, r = i + 1, len(nums) - 1 
+        
+        l, r = i + 1, len(nums) - 1
         while l < r:
             total = nums[i] + nums[l] + nums[r]
             if total < 0:
@@ -28,15 +27,20 @@ class Solution:
                 r -= 1
                 while l < r and nums[l] == nums[l - 1]:
                     l += 1
+    
+        
+        
+        
 """
-For the main function:
+1. For the main function:
 
 Sort the input array nums.
 Iterate through the array:
     If the current value is greater than zero, break from the loop. Remaining values cannot sum to zero.
     If the current value is the same as the one before, skip it.
     Otherwise, call twoSumII for the current position i.
-For twoSumII function:
+    
+2. For twoSumII function:
 
 Set the low pointer lo to i + 1, and high pointer hi to the last index.
 While low pointer is smaller than high:
