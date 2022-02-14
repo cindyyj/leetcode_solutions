@@ -45,6 +45,9 @@ class Solution:
         
         
 """
+For an interview, we recommend focusing on the Two Pointers approach above. 
+It's easier to get it right and adapt for other variations of 3Sum
+
 1. For the main function:
 
 Sort the input array nums.
