@@ -1,45 +1,43 @@
 class Solution:
-    def threeSumSmaller(self, nums: List[int], target: int) -> int:
-        if len(nums) < 3:
-            return 0
+#     def threeSumSmaller(self, nums: List[int], target: int) -> int:
+#         if len(nums) < 3:
+#             return 0
         
-        nums.sort()
+#         nums.sort()
         
-        ans = 0
-        for i in range(len(nums) - 2):
-
-            j, k = i + 1, len(nums) - 1 
-            while j < k:
-                total = nums[i] + nums[j] + nums[k]
-                if total < target:
-                    ans += k - j
-                    j += 1
-                else:
-                    k -= 1
-        return ans
-        
-        
-#         cnt = 0
+#         ans = 0
 #         for i in range(len(nums) - 2):
-#             if nums[i] > target:
-#                 break
-#             cnt += self.twoSumSmaller(nums, i, target - nums[i])
+#             j, k = i + 1, len(nums) - 1 
+#             while j < k:
+#                 total = nums[i] + nums[j] + nums[k]
+#                 if total < target:
+#                     ans += k - j
+#                     j += 1
+#                 else:
+#                     k -= 1
+#         return ans
         
-#         return cnt
+    def threeSumSmaller(self, nums: List[int], target: int) -> int:    
+        cnt = 0
+        nums.sort()
+        for i in range(len(nums) - 2):
+            # if nums[i] > target: break # don't add this line! this doesn't work for neg, threeSumSmaller([0,-4,-1,1,-1,2], -5)  
+            cnt += self.twoSumSmaller(nums, i, target - nums[i])       
+        return cnt
     
-#     def twoSumSmaller(self, nums, i, target):
-#         l, r = i + 1, len(nums) - 1
+    def twoSumSmaller(self, nums, i, target):
+        l, r = i + 1, len(nums) - 1
         
-#         cnt = 0
-#         while l < r:
-#             total = nums[l] + nums[r]
-#             if total >= target:
-#                 r -= 1
-#             else:
-#                 cnt += r - l
-#                 l += 1
+        cnt = 0
+        while l < r:
+            total = nums[l] + nums[r]
+            if total >= target:
+                r -= 1
+            else:
+                cnt += r - l
+                l += 1
         
-#         return cnt              
+        return cnt              
 
 """
 [1, 2, 3, 5, 8]
