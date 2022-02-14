@@ -10,49 +10,37 @@ class Solution:
         
         return res
     
+    # def twoSum(self, nums, i, res):        
+    #     l, r = i + 1, len(nums) - 1
+    #     while l < r:
+    #         total = nums[i] + nums[l] + nums[r]
+    #         if total < 0:
+    #             l += 1
+    #         elif total > 0:
+    #             r -= 1
+    #         else:
+    #             res.append([nums[i], nums[l], nums[r]])
+    #             l += 1
+    #             r -= 1
+    #             while l < r and nums[l] == nums[l - 1]:
+    #                 l += 1
+        
     
-    def twoSum(self, nums, i, res):
-        seen = set()
+    def twoSum(self, nums, i, res):                 
+        seen = set()        
         j = i + 1
         while j < len(nums):
-            complement = -nums[i] - nums[j]
+            complement = - nums[i] - nums[j]
             if complement in seen:
                 res.append([nums[i], nums[j], complement])
                 while j + 1 < len(nums) and nums[j] == nums[j + 1]:
                     j += 1
             seen.add(nums[j])
             j += 1
-            
-            
-#         seen = set()
-        
-#         j = i + 1
-#         while j < len(nums):
-#             complement = - nums[i] - nums[j]
-#             if complement in seen:
-#                 res.append([nums[i], nums[j], complement])
 
-#             seen.add(nums[j])
-#             j += 1
 
-#             while j < len(nums) and nums[j] == nums[j - 1]:
-#                 j += 1
     
-#     def twoSum(self, nums, i, res):        
-#         l, r = i + 1, len(nums) - 1
-#         while l < r:
-#             total = nums[i] + nums[l] + nums[r]
-#             if total < 0:
-#                 l += 1
-#             elif total > 0:
-#                 r -= 1
-#             else:
-#                 res.append([nums[i], nums[l], nums[r]])
-#                 l += 1
-#                 r -= 1
-#                 while l < r and nums[l] == nums[l - 1]:
-#                     l += 1
-    
+
         
         
         
