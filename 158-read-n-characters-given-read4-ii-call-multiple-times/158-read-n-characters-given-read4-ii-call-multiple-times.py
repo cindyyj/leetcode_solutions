@@ -6,6 +6,15 @@ class Solution:
         self.queue = collections.deque()
 
     def read(self, buf: List[str], n: int) -> int:
+        """
+        :type buf: Destination buffer (List[str])
+        :type n: Number of characters to read (int)
+        :rtype: The number of actual characters read (int)
+        
+        Get data from read4 and store it in a queue
+        Transfer data from queue to buf
+        
+        """
         i = 0
         while i < n:
             buf4 = [''] * 4 
