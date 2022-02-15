@@ -1,6 +1,6 @@
 class Solution:
-    def generate(self, numRows: int) -> List[List[int]]:
-        
+    def generate(self, numRows: int) -> List[List[int]]: 
+    
         tri = [[1] * (i+1) for i in range(numRows)]
         
         for i in range(numRows):
