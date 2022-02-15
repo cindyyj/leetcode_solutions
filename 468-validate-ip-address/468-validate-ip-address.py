@@ -1,6 +1,8 @@
 class Solution:
     def validIPAddress(self, IP: str) -> str:
         def isIPv4(s): # smart way of checking leading zeros
+            #  If there is a character in s, 
+            # then int(s) would throw an exception which would be caught by the except block. The function will return False in this case
             try: return str(int(s)) == s and 0 <= int(s) <= 255
             except: return False
         
