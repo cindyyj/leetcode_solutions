@@ -1,6 +1,14 @@
 class Solution:
     def hammingWeight(self, n: int) -> int:
-        return bin(n).count("1")
+        
+        w = 0
+        while n:
+            n = n & (n - 1)
+            w += 1
+        
+        return w
+        
+        # return bin(n).count("1")
         
 #         得到二进制字符串，统计字符串中 "1" 的次数即可。
 #         需要注意的是，二进制字符串是以 "0b" 开头，所以如果题目要问的是二进制中 0 的个数，需要注意答案是 bin(n).count("0") - 1。
