@@ -14,7 +14,13 @@ class Solution:
         # in-place stratgy 
         l, r = 0, len(num) - 1
         while l <= r:
-            if num[l] not in rotated_map or rotated_map[num[l]] != num[r]:
+            
+            # Clean Python3 solution.
+            # dict.get(key) returns None if it cannot find they key's value in the dictionary. 
+            # So we can directly compare that with any number and it will return False
+            # if num[l] not in rotated_map or rotated_map[num[l]] != num[r]
+            
+            if rotated_map.get(num[l]) != num[r]:
                 return False
             l += 1
             r -= 1
