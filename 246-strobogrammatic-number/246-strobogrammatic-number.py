@@ -10,10 +10,22 @@ class Solution:
         }
         
         rotated = []
-        for char in reversed(num):
-            if char not in rotated_map:
+        
+        # in-place stratgy 
+        l, r = 0, len(num) - 1
+        while l <= r:
+            if num[l] not in rotated_map or rotated_map[num[l]] != num[r]:
                 return False
-            rotated.append(rotated_map[char])
+            l += 1
+            r -= 1
+        
+        return True
+        
+        # rebuild rotated string, time O(n), space O(n)
+#         for char in reversed(num):
+#             if char not in rotated_map:
+#                 return False
+#             rotated.append(rotated_map[char])
             
-        return num == ''.join(rotated)
+#         return num == ''.join(rotated)
         
