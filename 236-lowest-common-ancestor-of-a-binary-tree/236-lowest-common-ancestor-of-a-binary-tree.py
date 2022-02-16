@@ -5,19 +5,41 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
 
-    def DFS(self,root,p,q):
-        if root:
-            if root in (None,p,q):
-                return root
-            l = self.DFS(root.left,p,q)
-            r = self.DFS(root.right,p,q)
-            return root if l and r else l or r        
-        else:
-            return None
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        return self.DFS(root,p,q)    
+
+        if root in [None, p, q]:
+            return root
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+        
+        if not left and not right:
+            return 
+        elif not left:
+            return right
+        elif not right:
+            return left
+        else:
+            return root
+        
+        
+
+
+# class Solution:
+
+#     def DFS(self,root,p,q):
+#         if root:
+#             if root in (None,p,q):
+#                 return root
+#             l = self.DFS(root.left,p,q)
+#             r = self.DFS(root.right,p,q)
+#             return root if l and r else l or r        # else l or r same as return left if left else right
+#         else:
+#             return None
+#     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+#         return self.DFS(root,p,q)    
     
     
 #     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
@@ -71,3 +93,24 @@ class Solution:
         
 #         return root # if left and right 
 
+"""
+递归解析：
+终止条件：
+当越过叶节点，则直接返回 null ；
+当 root 等于 p, q，则直接返回 rootroot ；
+递推工作：
+开启递归左子节点，返回值记为 left ；
+开启递归右子节点，返回值记为 right ；
+返回值： 根据 left 和 right ，可展开为四种情况；
+当 left 和 right 同时为空 ：说明 root 的左 / 右子树中都不包含 p,q ，返回 null ；
+当 left 和 right  同时不为空 ：说明 p, q 分列在 rootroot 的 异侧 （分别在 左 / 右子树），因此 root 为最近公共祖先，返回 root ；
+当 left 和 right  不为空 ：p,q 都不在 root 的左子树中，直接返回 right 。具体可分为两种情况：
+p,q 其中一个在 root 的 右子树 中，此时 right 指向 p（假设为 pp ）；
+p,q 两节点都在 root 的 右子树 中，此时的 rightright 指向 最近公共祖先节点 ；
+当 left 不为空 ， right 为空 ：与情况 3. 同理；
+
+作者：jyd
+链接：https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/solution/236-er-cha-shu-de-zui-jin-gong-gong-zu-xian-hou-xu/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+"""
