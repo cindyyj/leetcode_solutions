@@ -16,7 +16,7 @@ class Solution:
         self.total = self.pre[-1]
 
     def pickIndex(self) -> int:
-        target = random.random() * self.total #random.randint(1, self.total)
+        target = random.randint(1, self.total)  # random.random() * self.total 
         
         l, r = 0, len(self.pre) - 1
         while l <= r:
