@@ -16,7 +16,7 @@ class Solution:
         self.total = self.pre[-1]
 
     def pickIndex(self) -> int:
-        target = random.randint(1, self.total)
+        target = random.random() * self.total #random.randint(1, self.total)
         
         l, r = 0, len(self.pre) - 1
         while l <= r:
@@ -28,7 +28,7 @@ class Solution:
             
         return l
         
-        # return bisect_left(self.pre, x)
+        # return bisect_left(self.pre, target)
 
         # 作者：LeetCode-Solution
         # 链接：https://leetcode-cn.com/problems/random-pick-with-weight/solution/an-quan-zhong-sui-ji-xuan-ze-by-leetcode-h13t/
