@@ -1,6 +1,13 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        return sum(set(nums)) * 2 - sum(nums)
+        return reduce(xor, nums)
+        
+        # xor = 0
+        # for num in nums:
+        #     xor ^= num
+        # return xor
+        
+        # return sum(set(nums)) * 2 - sum(nums)
         
 # # --------------------------- METHOD 1 ---------------------------
 # 	# Use dictionary to keep track of how many time each number appears
