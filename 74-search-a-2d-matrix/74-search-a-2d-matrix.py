@@ -6,21 +6,42 @@ class Solution:
         
         # return any([target in row for row in matrix])
         
-        # search from upper right or bottom left
-        rows = len(matrix)
-        cols = len(matrix[0])
+        # binary search!!!, time O(log(mn))
+        m = len(matrix)
+        n = len(matrix[0])
         
-        row, col = 0, cols-1
+        if not m or not n:
+            return False
         
-        while True:
-            if row < rows and col >=0:
-                if matrix[row][col] == target:
-                    return True
-                elif matrix[row][col] > target:
-                    col -= 1
-                else:
-                    row += 1
-                    
+        l, r = 0, m * n - 1
+        while l <= r:
+            mid = l + (r - l) // 2
+            val = matrix[mid // n][mid % n]
+            if val == target:
+                return True
+            elif val < target:
+                l = mid + 1
             else:
-                return False       
+                r = mid - 1
+        
+        return False     
+        
+#         # time complexity, O(mn)
+#         # search from upper right or bottom left
+#         rows = len(matrix)
+#         cols = len(matrix[0])
+        
+#         row, col = 0, cols-1
+        
+#         while True:
+#             if row < rows and col >=0:
+#                 if matrix[row][col] == target:
+#                     return True
+#                 elif matrix[row][col] > target:
+#                     col -= 1
+#                 else:
+#                     row += 1
+                    
+#             else:
+#                 return False       
         
