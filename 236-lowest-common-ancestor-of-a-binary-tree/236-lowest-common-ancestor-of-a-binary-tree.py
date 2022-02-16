@@ -15,16 +15,10 @@ class Solution:
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
         
-        if not left and not right:
-            return 
-        elif not left:
-            return right
-        elif not right:
-            return left
-        else:
+        if left and right:
             return root
-        
-        
+        else:
+            return left if left else right
 
 
 # class Solution:
