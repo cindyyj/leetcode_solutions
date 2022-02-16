@@ -36,6 +36,3 @@ class Solution:
             return node
         
         return left or right
-        
-        
-            
