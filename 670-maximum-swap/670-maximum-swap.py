@@ -1,6 +1,7 @@
 class Solution:
     def maximumSwap(self, num: int) -> int:
-        nums = list(map(int, str(num)))
+        nums = [int(c) for c in str(num)]
+        # nums = list(map(int, str(num)))
         last = {x: i for i, x in enumerate(nums)}
         
         for i in range(len(nums)):
