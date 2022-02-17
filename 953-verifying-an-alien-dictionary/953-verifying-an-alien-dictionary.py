@@ -1,25 +1,32 @@
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
         
-        d = {char : i for i, char in enumerate(order)}
         
-        for i in range(len(words) - 1):
-            word1 = [d[c] for c in words[i]] 
-            word2 = [d[c] for c in words[i + 1]]
+        outtab = "abcdefghijklmnopqrstuvwxyz"
+        trantab = "".maketrans(order, outtab) # "".maketrans(order, string.ascii_lowercase)
+        for i in range(len(words)):
+            words[i] = words[i].translate(trantab)
+        return words == sorted(words)
+        
+#         d = {char : i for i, char in enumerate(order)}
+        
+#         for i in range(len(words) - 1):
+#             word1 = [d[c] for c in words[i]] 
+#             word2 = [d[c] for c in words[i + 1]]
             
-            for j in range(len(word1)):
-                if j >= len(word2):  # "app" < "apple"
-                    return False
+#             for j in range(len(word1)):
+#                 if j >= len(word2):  # "app" < "apple"
+#                     return False
                 
-                if word1[j] != word2[j]:
-                    if word1[j] > word2[j]:
-                        return False
-                    else:  
-                        # if we find the first different character and they are sorted,
-                        # then there's no need to check remaining letters
-                        break
+#                 if word1[j] != word2[j]:
+#                     if word1[j] > word2[j]:
+#                         return False
+#                     else:  
+#                         # if we find the first different character and they are sorted,
+#                         # then there's no need to check remaining letters
+#                         break
         
-        return True
+#         return True
             
         
         
