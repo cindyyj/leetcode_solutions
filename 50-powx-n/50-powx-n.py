@@ -5,33 +5,33 @@ class Solution:
     @lru_cache()
     def myPow(self, x: float, n: int) -> float:
         
-        # iterative
-        if n == 0 or x == 1:
-            return 1
-        if x == 0:
-            return 0
+#         # iterative
+#         if n == 0 or x == 1:
+#             return 1
+#         if x == 0:
+#             return 0
         
-        if n < 0:
-            x = 1/x
-            n = -n 
+#         if n < 0:
+#             x = 1/x
+#             n = -n 
         
-        ans = 1
-        while n > 0:
-            if n & 1: # n % 2 == 1
-                ans = ans * x
-            n = n >> 1 # n//2
-            x = x*x
-        return ans
+#         ans = 1
+#         while n > 0:
+#             if n & 1: # n % 2 == 1
+#                 ans = ans * x
+#             n = n >> 1 # n//2
+#             x = x*x
+#         return ans
 
         
-#         # recursive 
-#         if n == 0:
-#             return 1        
-#         if n < 0:
-#             return 1/self.myPow(x, -n)        
-#         if n % 2:
-#             return x * self.myPow(x, (n-1))        
-#         return self.myPow(x*x, n >> 1)  # n // 2
+        # recursive 
+        if n == 0:
+            return 1        
+        if n < 0:
+            return 1/self.myPow(x, -n)        
+        if n % 2:
+            return x * self.myPow(x, (n-1))        
+        return self.myPow(x*x, n >> 1)  # n // 2
 
 """
 recursive func: 
