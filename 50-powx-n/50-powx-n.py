@@ -16,15 +16,7 @@ class Solution:
 
 """
 > Base Case:  b == 0
-> Function: F(a ^ b) = F( (a*a) ^ b // 2) 
-
-return pow(x, n)
-# pos
-# n odd, x**n = x*(x**2)**(n-1)/2
-# n even, x**n = (x**2)**n/2
-# x is called the base, and the number n is called the exponent.
-# 0
-# neg
+> Recursive Function: F(a ^ b) = F( (a*a) ^ b // 2) 
 
 # recursive
 # https://leetcode.com/problems/powx-n/discuss/19560/Shortest-Python-Guaranteed
@@ -35,5 +27,26 @@ Time complexity : O(logn). Each time we apply the formula , n is reduced by half
 Space complexity : O(logn). 
 
 python中lru_cache的基本原理是构建一个字典，字典的key为调用参数，value就是该参数的计算结果。
+
+Recursion是什么：
+编程角度: Recursion involves a function calling itself.
+实际用处:
+Recursion is a method of solving problems that involves breaking a problem down into smaller and smaller subproblems until you get to a small enough problem that it can be solved trivially.
+从大化小，知道问题可以小的可以被轻易解决，然后重复同样的步骤直到大问题被解决。
+Recursion的意义何在？
+更简单理解的业务逻辑
+更简短的代码
+Recursion的编程实操
+Recursion其实大方向就两个步骤：
+
+Base Case:
+处理最小的问题：每个Recursion方程都必须有个出口，或者是终止条件。Base Case针对的是Recursion被分解成最小的问题以后，如何解决这个最小问题。所以我们的Base Case一般是做一个我们输入问题是否已经是最小了这么一个对比。每个Recursion必须要有Base Case，避免死循环。
+Recursive Function:
+把大问题不断变小。
+Return:
+返回
+所以Recursion的口诀就是：这个问题是Base Case么？不是那我们就写Recursion让问题化小，直到变成Base Case，处理并且返回
+
+https://github.com/yuzhoujr/leetcode/issues/43
 
 """
