@@ -4,25 +4,10 @@ class Solution:
         for p in path.split('/'):
             if stack and p == '..':
                 stack.pop()
-            elif p not in " ..":
+            elif p not in "..":  # p is not empty, not '.', not '..'
                 stack.append(p)
         return '/' + '/'.join(stack)
 
-# 作者：qingfengpython
-# 链接：https://leetcode-cn.com/problems/simplify-path/solution/71-jian-hua-lu-jing-biao-zhun-de-zhan-we-0ebf/
-# 来源：力扣（LeetCode）
-# 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。   
-#         stack = []
-#         for p in path.split('/'):
-#             if stack and p == '..':
-#                 stack.pop()
-#             elif p in ['.', ''] :  # no-op for '.' or empty string (not '' = True)
-#                 continue
-#             else: # a directory name
-#                 stack.append(p)
-                
-# #         return '/' + '/'.join(stack)
-        
         
         """
 具体的，从前往后处理 path，每次以 item 为单位进行处理（有效的文件名），根据 item 为何值进行分情况讨论：
