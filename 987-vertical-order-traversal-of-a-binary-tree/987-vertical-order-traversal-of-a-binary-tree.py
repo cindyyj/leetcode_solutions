@@ -13,7 +13,9 @@ class Solution:
         # 987 different from 314
         
         d = collections.defaultdict(list)
-        queue = collections.deque([(root, 0, 0)])
+        # queue = collections.deque([(root, 0, 0)])
+        queue = collections.deque()
+        queue.append((root, 0, 0))
         
         while queue:
             node, row, col = queue.popleft()
