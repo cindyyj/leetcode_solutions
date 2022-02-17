@@ -15,6 +15,11 @@ class Solution:
         return self.myPow(x*x, n/2)
 
 """
+from functools import lru_cache
+@lru_cache()  # lru  least recently used, stored intermediate results, that saves time! 
+def fib(n):
+
+
 > Base Case:  b == 0
 > Recursive Function: F(a ^ b) = F( (a*a) ^ b // 2) 
 
