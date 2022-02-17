@@ -5,7 +5,7 @@ class Solution:
         # 当前 presum 与 K的关系，余数是几，当被除数为负数时取模结果为负数，需要纠正
         seen, cur = {0: -1}, 0
         for i, a in enumerate(nums):
-            cur = (cur + a) % abs(k) if k else cur + a
+            cur = (cur + a) % abs(k) 
             if i - seen.setdefault(cur, i) > 1: return True
         return False   
     
