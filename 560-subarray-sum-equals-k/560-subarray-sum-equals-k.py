@@ -1,5 +1,7 @@
+from itertools import accumulate
+from collections import defaultdict
+
 class Solution:
-    from collections import defaultdict
     
     def subarraySum(self, nums: List[int], k: int) -> int:
         
