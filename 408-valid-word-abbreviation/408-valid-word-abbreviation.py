@@ -15,7 +15,7 @@ class Solution:
                 return False
             elif abbr[j].isdigit():
                 k = j
-                while k < n and abbr[k].isnumeric():
+                while k < n and abbr[k].isdigit():
                     k += 1
                 i += int(abbr[j:k])
                 j = k
