@@ -1,28 +1,31 @@
 class Solution:
     def checkSubarraySum(self, nums: List[int], k: int) -> bool:
-        # sum(nums[i:j]) % k == 0 for some i < j, then sum(nums[:j]) % k == sum(nums[:i]) % k. 
-        # So we just need to use a dictionary to keep track of sum(nums[:i]) % k and the corresponding index i
-        # 当前 presum 与 K的关系，余数是几，当被除数为负数时取模结果为负数，需要纠正
-        seen, cur = {0: -1}, 0
-        for i, a in enumerate(nums):
-            cur = (cur + a) % abs(k) 
-            if i - seen.setdefault(cur, i) > 1: return True
-        return False   
-    
-#         if len(nums) <= 1:
-#             return False
+
         
-#         pres = list(accumulate(nums))
-#         d = defaultdict(int)
-#         d[0] = -1
-#         cnt = 0
-        
-#         for i, pre in enumerate(pres):
-#             key = pre % k
-#             if key in d and i - d[key] > 1:
-#                 return True
+        # mapping = {0: -1}
+        # for i, prefix in enumerate(itertools.accumulate(nums)):
+        #     key = prefix % k if k else prefix
+        #     if key not in mapping:
+        #         mapping[key] = i
+        #     elif i - mapping[key] > 1:
+        #         return True
+        # return False
     
-#             d[key] = i
+    
+        if len(nums) <= 1:
+            return False
+        
+        pres = list(accumulate(nums))
+        d = defaultdict(int)
+        d[0] = -1
+        cnt = 0
+        
+        for i, pre in enumerate(pres):
+            key = pre % k
+            if key in d and i - d[key] > 1:
+                return True
+            if key not in d:
+                d[key] = i
                 
         return False   
     
