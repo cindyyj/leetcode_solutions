@@ -3,38 +3,28 @@ class Solution:
         # sum(nums[i:j]) % k == 0 for some i < j, then sum(nums[:j]) % k == sum(nums[:i]) % k. 
         # So we just need to use a dictionary to keep track of sum(nums[:i]) % k and the corresponding index i
         # 当前 presum 与 K的关系，余数是几，当被除数为负数时取模结果为负数，需要纠正
-        # https://leetcode-cn.com/problems/continuous-subarray-sum/solution/de-liao-wo-ba-qian-zhui-he-miao-de-gan-g-c8kp/
-        # 【动画模拟】一文秒杀七道题 程序厨
+        seen, cur = {0: -1}, 0
+        for i, a in enumerate(nums):
+            cur = (cur + a) % abs(k) if k else cur + a
+            if i - seen.setdefault(cur, i) > 1: return True
+        return False   
     
-        if len(nums) <= 1:
-            return False
-        d = {0: -1}
-        pre = 0
-        for index, num in enumerate(nums):
-            pre += num
-            rem = pre % k
-            i = d.get(rem, index)
-            if i == index:
-                d[rem] = index
-            elif i <= index - 2:
-                return True
-        return False
-
-# 作者：qingfengpython
-# 链接：https://leetcode-cn.com/problems/continuous-subarray-sum/solution/523-lian-xu-de-zi-shu-zu-he-qian-zhui-he-zl78/
-# 来源：力扣（LeetCode）
-# 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。        
+#         if len(nums) <= 1:
+#             return False
+        
 #         pres = list(accumulate(nums))
 #         d = defaultdict(int)
 #         d[0] = -1
+#         cnt = 0
         
 #         for i, pre in enumerate(pres):
 #             key = pre % k
 #             if key in d and i - d[key] > 1:
 #                 return True
+    
 #             d[key] = i
                 
-#         return False   
+        return False   
     
         # For example for array [23,4,8] and k = 6 
         # we can see for indices 1 and 2 we have a subarray [4,8] which satisfies the constraint
