@@ -6,7 +6,7 @@ class Solution:
         
         for c in order:
             ans.extend( c * cnt[c] )
-            del cnt[c]
+            del cnt[c] # or cnt[c] = 0
             
         for c in cnt:
             ans.extend( c * cnt[c] )
