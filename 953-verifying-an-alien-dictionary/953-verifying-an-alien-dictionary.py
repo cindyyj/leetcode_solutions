@@ -1,10 +1,10 @@
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
         
+        # create mapping to a-z
         d = {char : chr(ord('a') + i) for i, char in enumerate(order)}
         for i in range(len(words)):
-            words[i] = ''.join([d[c] for c in words[i]])
-        
+            words[i] = ''.join([d[c] for c in words[i]])        
         return sorted(words) == words
         
         # outtab = "abcdefghijklmnopqrstuvwxyz"
