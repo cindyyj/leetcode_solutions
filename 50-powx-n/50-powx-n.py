@@ -15,6 +15,8 @@ class Solution:
         return self.myPow(x*x, n/2)
 
 """
+recursive func: 
+
 from functools import lru_cache
 @lru_cache()  # lru  least recently used, stored intermediate results, that saves time! 
 def fib(n):
@@ -22,6 +24,9 @@ def fib(n):
 
 > Base Case:  b == 0
 > Recursive Function: F(a ^ b) = F( (a*a) ^ b // 2) 
+
+return pow(x, n)
+
 
 # recursive
 # https://leetcode.com/problems/powx-n/discuss/19560/Shortest-Python-Guaranteed
