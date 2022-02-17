@@ -2,22 +2,36 @@ from itertools import accumulate
 from collections import defaultdict
 
 class Solution:
-    
     def subarraySum(self, nums: List[int], k: int) -> int:
+        pres = list(accumulate(nums))
+        d = Counter()
+        d[0] = 1
+        cnt = 0
         
-        prefix_sum = defaultdict(int)
-        prefix_sum[0] = 1
-        cur_sum = 0
-        res = 0
+        for i, pre in enumerate(pres):
+            if pre - k in d:
+                cnt += d[pre-k]
+            d[pre] += 1
         
-        for i in range(len(nums)):
-            cur_sum += nums[i]
-            if cur_sum - k in prefix_sum:
-                res += prefix_sum[cur_sum - k]
+        return cnt
             
-            prefix_sum[cur_sum] += 1
+    
+    
+#     def subarraySum(self, nums: List[int], k: int) -> int:        
+#         prefix_sum = defaultdict(int)
+#         prefix_sum[0] = 1
+#         cur_sum = 0
+#         res = 0
         
-        return res
+#         for i in range(len(nums)):
+#             cur_sum += nums[i]
+#             if cur_sum - k in prefix_sum:
+#                 res += prefix_sum[cur_sum - k]
+            
+#             prefix_sum[cur_sum] += 1        
+#         return res
+    
+    
 # Just wanted to share a clear explanation that helped me.
 
 # First of all, the basic idea behind this code is that, whenever the sums has increased by a value of k, we've found a subarray of sums=k.
