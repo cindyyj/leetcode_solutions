@@ -1,12 +1,17 @@
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
         
-        
-        outtab = "abcdefghijklmnopqrstuvwxyz"
-        trantab = "".maketrans(order, outtab) # "".maketrans(order, string.ascii_lowercase)
+        d = {char : chr(ord('a') + i) for i, char in enumerate(order)}
         for i in range(len(words)):
-            words[i] = words[i].translate(trantab)
-        return words == sorted(words)
+            words[i] = ''.join([d[c] for c in words[i]])
+        
+        return sorted(words) == words
+        
+        # outtab = "abcdefghijklmnopqrstuvwxyz"
+        # trantab = "".maketrans(order, outtab) # "".maketrans(order, string.ascii_lowercase)
+        # for i in range(len(words)):
+        #     words[i] = words[i].translate(trantab)
+        # return words == sorted(words)
         
 #         d = {char : i for i, char in enumerate(order)}
         
