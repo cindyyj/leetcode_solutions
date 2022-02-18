@@ -5,7 +5,24 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-
+    def diameterOfBinaryTree(self, root: TreeNode) -> int:
+        d = 0
+        
+        def dfs(node):
+            if not node:
+                return 0 
+            nonlocal d 
+            
+            l = dfs(node.left)
+            r = dfs(node.right)
+            d = max(d, l + r)
+            
+            return max(l, r) + 1
+        
+        dfs(root)
+        return d
+        
+        
     # 错误解答： 最大直径是左子树和右子树的最大深度之和，
     # 但是万一最大直径没有经过根节点呢？
     # 所以说对于树中的每一个结点，都要把它视为根节点，然后比较所有结点的左子树和右子树的最大深度之和，取其中的最大值。
