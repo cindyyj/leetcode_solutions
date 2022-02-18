@@ -7,36 +7,36 @@
 class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         
-        # BFS
+#         # BFS
         
-        total = 0
-        q = collections.deque([root])
+#         total = 0
+#         q = collections.deque([root])
         
-        while q:
-            node = q.popleft()
-            if not node:
-                continue
-            if node.val > high:
-                q.append(node.left)
-            elif node.val < low:
-                q.append(node.right)
-            else:
-                total += node.val
-                q.append(node.left)
-                q.append(node.right)
+#         while q:
+#             node = q.popleft()
+#             if not node:
+#                 continue
+#             if node.val > high:
+#                 q.append(node.left)
+#             elif node.val < low:
+#                 q.append(node.right)
+#             else:
+#                 total += node.val
+#                 q.append(node.left)
+#                 q.append(node.right)
                 
-        return total
+#         return total
         
         
-        # # DFS        
-        # if not root:
-        #     return 0        
-        # if root.val > high:
-        #     return self.rangeSumBST(root.left, low, high)        
-        # elif root.val < low:
-        #     return self.rangeSumBST(root.right, low, high)      
-        # else:
-        #     return root.val + self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
+        # DFS        
+        if not root:
+            return 0        
+        if root.val > high:
+            return self.rangeSumBST(root.left, low, high)        
+        elif root.val < low:
+            return self.rangeSumBST(root.right, low, high)      
+        else:
+            return root.val + self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
         
 #         # BFS
         
