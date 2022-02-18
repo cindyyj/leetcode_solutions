@@ -4,23 +4,26 @@ class Solution:
         # time complexity: O(R*C) , number of rows * number of columns
         # no island? 
         
-        rows, cols = len(grid), len(grid[0])
-        def area(r, c):
+        m, n = len(grid), len(grid[0])
+        
+        def move(r, c):
+            for i, j in ((1,0), (-1,0), (0,1), (0,-1)):
+                if 0 <= r + i < m and 0 <= c + j < n:
+                    yield r + i, c + j 
+                    
+        def dfs(r, c):
             # if island and index within grid
-            if 0 <= r < rows and 0 <= c < cols and grid[r][c]:
-                grid[r][c] = 0
-                return (1 + 
-                       area(r - 1, c) +
-                       area(r + 1, c) +
-                       area(r, c - 1) +
-                       area(r, c + 1) 
-                       )
-            return 0
+            area = 0
+            grid[r][c] = 2
+            for x, y in move(r, c):
+                if grid[x][y] == 1:
+                    area += dfs(x, y)
+            return 1 + area
         
         maxarea = 0
-        for r in range(rows):
-            for c in range(cols):
-                maxarea = max(maxarea, area(r, c))
+        for r, c in product(range(m), range(n)):
+            if grid[r][c] == 1:
+                maxarea = max(maxarea, dfs(r, c))
                 
         return maxarea
             
