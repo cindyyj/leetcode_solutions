@@ -31,29 +31,4 @@ class Solution:
 # # If the stack is empty we replace current list element with an empty string
 # # After iteration, we replace all indices we have in the stack with empty strings, because we don't have close parentheses for them.
 # # Convert list to string and return
-
-#         indexes_to_remove = set()
-#         stack = []
-#         s = list(s)
-        
-#         for i, c in enumerate(s):
-#             if c not in '()':
-#                 continue
-#             elif c == '(':
-#                 stack.append(i)
-#             # c == ) and stack not empty
-#             elif stack:
-#                 stack.pop()
-#             # c == ) and stack empty
-#             else:
-#                 indexes_to_remove.add(i)
-            
-#         indexes_to_remove = indexes_to_remove.union(stack)
-
-#         string = []
-#         for i, c in enumerate(s):
-#             if i not in indexes_to_remove:
-#                 string.append(c)
-            
-#         return ''.join(string)
         
