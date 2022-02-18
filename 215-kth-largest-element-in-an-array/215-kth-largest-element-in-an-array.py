@@ -2,12 +2,12 @@ class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
         # Kth largest element in an array - Time: O(k + (n-k) log k), space: O(k)
         # minheap, maintain size k heap, top is kth largest element
-        heap = []
-        for num in nums:
-            heapq.heappush(heap, num)
-        for _ in range(len(nums)-k):
-            heapq.heappop(heap)
-        return heapq.heappop(heap)
+        queue = nums[:k]
+        heapq.heapify(queue)
+        for num in nums[k:]:
+            heapq.heappush(queue, num)
+            heapq.heappop(queue)
+        return queue[0]
         
         # return heapq.nlargest(k, nums)[-1]   
         
