@@ -1,5 +1,6 @@
 class Solution:
     def shortestDistance(self, grid: List[List[int]]) -> int:
+# https://leetcode.com/problems/shortest-distance-from-all-buildings/discuss/228853/Python-solution
 
 #         def getNeighbors(row, col):
 #             for i, j in [(-1, 0), (1, 0), (0, 1), (0, -1)]:
