@@ -1,11 +1,11 @@
 from itertools import accumulate
-from collections import defaultdict
+from collections import defaultdict, Counter
 
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
         pres = list(accumulate(nums))
         d = Counter()
-        d[0] = 1
+        d[0] = 1  ### important to initialize d[0] = 1 to handle case like [1,1,1], k =2 
         cnt = 0
         
         for i, pre in enumerate(pres):
