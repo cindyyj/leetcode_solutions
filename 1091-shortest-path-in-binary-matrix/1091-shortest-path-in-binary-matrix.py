@@ -14,16 +14,20 @@ class Solution:
         seen = set()
         seen.add((0,0))
         
+        def getnext(row, col):
+            for dx, dy in dirs:
+                r, c = row + dx, col + dy
+                if 0 <= r < n and 0 <= c < n:
+                    yield r, c
+        
         while queue:
             row, col, d = queue.popleft()
             if (row, col) == (n-1, n-1):
                 return d
-            for dx, dy in dirs:
-                r, c = row + dx, col + dy
-                if 0 <= r < n and 0 <= c < n:
-                    if (r, c) not in seen and grid[r][c] == 0:
-                        seen.add((r,c))
-                        queue.append((r, c, d+1))
+            for r, c in getnext(row, col):
+                if (r, c) not in seen and grid[r][c] == 0:
+                    seen.add((r,c))
+                    queue.append((r, c, d+1))
         
         return -1 
         
