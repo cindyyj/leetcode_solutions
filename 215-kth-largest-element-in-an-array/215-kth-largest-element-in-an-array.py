@@ -5,8 +5,9 @@ class Solution:
         queue = nums[:k]
         heapq.heapify(queue)
         for num in nums[k:]:
-            heapq.heappush(queue, num)
-            heapq.heappop(queue)
+            heapq.heappushpop(queue, num)
+            # heapq.heappush(queue, num)
+            # heapq.heappop(queue)
         return queue[0]
         
         # return heapq.nlargest(k, nums)[-1]   
