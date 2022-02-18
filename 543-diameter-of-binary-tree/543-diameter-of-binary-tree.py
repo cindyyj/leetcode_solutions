@@ -17,7 +17,7 @@ class Solution:
             r = dfs(node.right)
             d = max(d, l + r)
             
-            return max(l, r) + 1
+            # return max(l, r) + 1
         
         dfs(root)
         return d
