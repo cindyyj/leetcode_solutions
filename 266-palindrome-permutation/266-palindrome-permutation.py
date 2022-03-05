@@ -1,9 +1,18 @@
 class Solution:
     def canPermutePalindrome(self, s: str) -> bool:
+        odds = set()
         
-        return sum(v % 2 for v in Counter(s).values()) < 2
-    
-    
+        for char in s:
+            if char not in odds:
+                odds.add(char)
+            else:
+                odds.remove(char)
+        
+        return len(odds) <= 1
+        
+# # --------------------------- METHOD 3 ---------------------------                
+#         return sum(v % 2 for v in Counter(s).values()) < 2
+
     
 # # --------------------------- METHOD 2 ---------------------------        
         
