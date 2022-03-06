@@ -1,12 +1,18 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         
-        # hashset
-        # time, O(n), traverse the list. Space: O(1)
+        # bit manipulation
+        missing = len(nums)
+        for i, num in enumerate(nums):
+            missing ^= i ^ num
+        return missing
         
-        for i in range(len(nums) + 1):
-            if i not in nums:
-                return i 
+#         # hashset
+#         # time, O(n), traverse the list. Space: O(1)
+        
+#         for i in range(len(nums) + 1):
+#             if i not in nums:
+#                 return i 
         
 #         # expected sum (n+1)*n/2 - actual sum
 #         # 时间复杂度：O(n)，
