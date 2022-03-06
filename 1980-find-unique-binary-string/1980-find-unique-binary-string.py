@@ -1,6 +1,7 @@
 class Solution:
     def findDifferentBinaryString(self, nums: List[str]) -> str:
-        #converting every binary string to integer representation and adding to set
+        # converting every binary string to integer representation and adding to set
+        # nums.length needs to be smaller than 16, so that able to convert to decimal number 
         
         s = set([int(i, 2) for i in nums])
         maxlen = len(nums[0])
