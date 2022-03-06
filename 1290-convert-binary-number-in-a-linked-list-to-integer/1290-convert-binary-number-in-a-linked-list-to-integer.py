@@ -9,7 +9,7 @@ class Solution:
         while head.next:
             # num = num * 2 + head.next.val
             # better with bitwise operations
-            num = num << 1 | head.next.val
+            num = (num << 1) | head.next.val
             
             head = head.next
         
