@@ -15,3 +15,11 @@ class Solution:
         
         return num
         
+#         # Use walrus operator in Python 3.8:
+#         # https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/discuss/451815/JavaPython-3-Simulate-binary-operations.
+
+#     def getDecimalValue(self, head: ListNode) -> int:
+#         ans = head.val
+#         while head := head.next:
+#             ans = ans << 1 | head.val
+#         return ans
