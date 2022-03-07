@@ -4,6 +4,8 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         # easiest two pointers!
+        # 荷兰国旗
+        # This is a dutch partitioning problem. 
         
         p0 = p1 = 0 # count 0, and 0+1
         
