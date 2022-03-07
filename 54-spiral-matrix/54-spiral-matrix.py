@@ -7,6 +7,29 @@ class Solution:
         move downwards: (row + 1, col)
         move left: (row, col - 1)
         move upwards: (row - 1, col)
+        
+          spiral_order([[1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9]])
+
+        = [1, 2, 3] + spiral_order([[6, 9],
+                                    [5, 8],
+                                    [4, 7]])
+
+        = [1, 2, 3] + [6, 9] + spiral_order([[8, 7],
+                                             [5, 4]])
+
+        = [1, 2, 3] + [6, 9] + [8, 7] + spiral_order([[4],
+                                                      [5]])
+
+        = [1, 2, 3] + [6, 9] + [8, 7] + [4] + spiral_order([[5]])
+
+        = [1, 2, 3] + [6, 9] + [8, 7] + [4] + [5] + spiral_order([])
+
+        = [1, 2, 3] + [6, 9] + [8, 7] + [4] + [5] + []
+
+        = [1, 2, 3, 6, 9, 8, 7, 4, 5]
+        
         """
         return matrix and [*matrix.pop(0)] + self.spiralOrder([*zip(*matrix)][::-1])
 
