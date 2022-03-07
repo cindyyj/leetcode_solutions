@@ -2,7 +2,7 @@ class Solution:
     def findMin(self, nums: List[int]) -> int:
         
         # https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/solution/
-        # binary search
+        # binary search, time O(logN)
         # one-element or no rotation (last elem > 1st elem)
         if len(nums) == 1 or nums[-1] > nums[0]:
             return nums[0]
