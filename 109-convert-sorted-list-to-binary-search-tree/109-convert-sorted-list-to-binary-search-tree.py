@@ -37,7 +37,3 @@ class Solution:
             return root
         
         return dfs(0, len(vals) - 1)
-        
-            
-            
-            
