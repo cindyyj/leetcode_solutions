@@ -9,6 +9,7 @@ class Solution:
         # if target not in arr, arr[bisect_left - 1] < target, insert at arr[bisect_left]
         # if target in or not in arr, arr[bisect_left] >= target
         # if target in or not in arr, arr[bisect_right] > target
+        # if target not in arr, arr[bisect_left] == arr[bisect_right]
         
         l, r = 0, len(arr) - 1
         while l <= r:
