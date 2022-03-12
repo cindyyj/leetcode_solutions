@@ -19,7 +19,7 @@ class Solution:
                 r = mid - 1
         # return l + k
         
-        missingLeft = arr[l-1] - l;
+        missingLeft = arr[l-1] - l
         return arr[l-1] + (k - missingLeft)
     
     
