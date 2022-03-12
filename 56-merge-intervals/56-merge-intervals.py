@@ -4,6 +4,24 @@ class Solution:
         # https://leetcode.com/problems/merge-intervals/discuss/1644409/C%2B%2BPython-Simple-Solutions-w-Explanation-or-Sort-Merge-O(NlogN)-%2B-Count-Sort-O(N-%2B-R)
         # official leetcode solution 
         # classic!!! 
+        
+        intervals.sort(key=lambda x : x[0])
+        r = 0
+        
+        for i in intervals:
+            if i[0] > intervals[r][1]:
+                intervals[r := r + 1] = i
+            else:
+                intervals[r][1] = max(intervals[r][1], i[1])
+                
+        return intervals[: r + 1]
+        
+        
+        
+        
+        
+        
+        
 
 # #  --------------------------- METHOD 1, sort, basic ---------------------------        
 #         intervals.sort(key=lambda x : x[0])
@@ -15,7 +33,7 @@ class Solution:
 #                 merged[-1][1] = max(merged[-1][1], i[1])
 #         return merged
         
-# #  --------------------------- METHOD 2 ---------------------------        
+# #  --------------------------- METHOD 2, in-place merge ---------------------------        
 
         intervals.sort(key=lambda x : x[0])
         # right end
@@ -29,11 +47,9 @@ class Solution:
         
         return intervals[:r+1]
 
-        
-# # 链接：https://leetcode-cn.com/problems/merge-intervals/solution/he-bing-qu-jian-by-leetcode-solution/
-
 
 """
+链接：https://leetcode-cn.com/problems/merge-intervals/solution/he-bing-qu-jian-by-leetcode-solution/
 # if the list of merged intervals is empty or if the current
 # interval does not overlap with the previous, simply append it.
 # otherwise, there is overlap, so we merge the current and previous intervals.
