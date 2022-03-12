@@ -4,25 +4,24 @@ class Solution:
         # official leetcode solution 
         # classic!!! 
         
-        intervals.sort(key=lambda x: x[0])
-        
+        intervals.sort(key=lambda x : (x[0], x[1]))
         merged = []
-        for interval in intervals:
-
-            # if the list of merged intervals is empty or if the current
-            # interval does not overlap with the previous, simply append it.
-            if not merged or merged[-1][1] < interval[0]:
-                merged.append(interval)
+        for i in intervals:
+            if not merged or i[0] > merged[-1][1]:
+                merged.append(i)
             else:
-            # otherwise, there is overlap, so we merge the current and previous
-            # intervals.
-                merged[-1][1] = max(merged[-1][1], interval[1])
-
+                merged[-1][1] = max(merged[-1][1], i[1])
         return merged
+        
+        
 # # 链接：https://leetcode-cn.com/problems/merge-intervals/solution/he-bing-qu-jian-by-leetcode-solution/
 
 
 """
+# if the list of merged intervals is empty or if the current
+# interval does not overlap with the previous, simply append it.
+# otherwise, there is overlap, so we merge the current and previous intervals.
+
 Facebook Follow-Up
 Question: How do you add intervals and merge them for a large stream of intervals? (Facebook Follow-up Question)
 
