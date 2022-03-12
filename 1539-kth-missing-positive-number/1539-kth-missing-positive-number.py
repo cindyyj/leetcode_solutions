@@ -1,6 +1,12 @@
 class Solution:
     def findKthPositive(self, arr: List[int], k: int) -> int:
         
+        
+        #  check how many numbers missing beween arr[0]
+        # it's supposed to be 1, missing = arr[0] - 1 => arr[i] - (i + 1)
+        # find a element whose missing is <= k using binary search        
+        # check whether kth missing is at before 0th element || or after end element
+        
         l, r = 0, len(arr) - 1
         while l <= r:
             mid = l + (r - l) // 2
@@ -11,8 +17,12 @@ class Solution:
                 l = mid + 1
             else:
                 r = mid - 1
-        return l + k
-
+        # return l + k
+        
+        missingLeft = arr[l-1] - l;
+        return arr[l-1] + (k - missingLeft)
+    
+    
 # # --------------------------- METHOD 2  ---------------------------        
 #         # 缺失的正整数一定 >= k
 #         # 数组中每出现一个 <= k 的数字, 意味着少了一个缺失的数字, 此时k+1        
