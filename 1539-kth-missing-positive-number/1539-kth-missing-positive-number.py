@@ -6,6 +6,9 @@ class Solution:
         # it's supposed to be 1, missing = arr[0] - 1 => arr[i] - (i + 1)
         # find a element whose missing is <= k using binary search        
         # check whether kth missing is at before 0th element || or after end element
+        # if target not in arr, arr[bisect_left - 1] < target, insert at arr[bisect_left]
+        # if target in or not in arr, arr[bisect_left] >= target
+        # if target in or not in arr, arr[bisect_right] > target
         
         l, r = 0, len(arr) - 1
         while l <= r:
