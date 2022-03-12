@@ -1,14 +1,17 @@
 class Solution:
     
     def getNext(self, n):
-        happy_sum = 0
         
-        while n:            
-            # n, digit = (n // 10, n % 10) = divmod(n, 10)            
-            happy_sum += (n % 10) ** 2
-            n //= 10
+        return sum([d ** 2 for d in list(map(int, str(n)))])        
+        
+#         happy_sum = 0
+        
+#         while n:            
+#             # n, digit = (n // 10, n % 10) = divmod(n, 10)            
+#             happy_sum += (n % 10) ** 2
+#             n //= 10
             
-        return happy_sum
+#         return happy_sum
     
     def isHappy(self, n: int) -> bool:
         
