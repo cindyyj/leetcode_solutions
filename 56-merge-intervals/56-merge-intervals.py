@@ -4,7 +4,7 @@ class Solution:
         # official leetcode solution 
         # classic!!! 
         
-        intervals.sort(key=lambda x : (x[0], x[1]))
+        intervals.sort(key=lambda x : x[0])
         merged = []
         for i in intervals:
             if not merged or i[0] > merged[-1][1]:
