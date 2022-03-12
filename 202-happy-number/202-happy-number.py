@@ -1,7 +1,6 @@
 class Solution:
     
-    def getNext(self, n):
-        
+    def getNext(self, n):        
         return sum([d ** 2 for d in list(map(int, str(n)))])        
         
 #         happy_sum = 0
