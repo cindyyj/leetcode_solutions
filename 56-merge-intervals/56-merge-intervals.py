@@ -4,24 +4,6 @@ class Solution:
         # https://leetcode.com/problems/merge-intervals/discuss/1644409/C%2B%2BPython-Simple-Solutions-w-Explanation-or-Sort-Merge-O(NlogN)-%2B-Count-Sort-O(N-%2B-R)
         # official leetcode solution 
         # classic!!! 
-        
-        intervals.sort(key=lambda x : x[0])
-        r = 0
-        
-        for i in intervals:
-            if i[0] > intervals[r][1]:
-                intervals[r := r + 1] = i
-            else:
-                intervals[r][1] = max(intervals[r][1], i[1])
-                
-        return intervals[: r + 1]
-        
-        
-        
-        
-        
-        
-        
 
 # #  --------------------------- METHOD 1, sort, basic ---------------------------        
 #         intervals.sort(key=lambda x : x[0])
