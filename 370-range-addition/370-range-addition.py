@@ -9,5 +9,11 @@ class Solution:
             if end + 1 < length:
                 arr[end + 1] -= inc
         
-        return list(accumulate(arr))
+        total = 0
+        for i in range(length):
+            total += arr[i]
+            arr[i] = total
+        return arr
+    
+        # return list(accumulate(arr))
         
