@@ -18,12 +18,14 @@ class Solution:
         # for list of tuples, it will sort the first element. 
         # If two tuples have the same first element then it will sort them according to the second element.
         lst.sort()
-        pas = 0
-        for loc in lst:
-            pas += loc[1]
-            if pas > capacity:
-                return False
-        return True
+        return not any(n > capacity for n in accumulate(map(lambda x:x[1], lst)))
+        
+        # pas = 0
+        # for loc in lst:
+        #     pas += loc[1]
+        #     if pas > capacity:
+        #         return False
+        # return True
     
 #         stops = sorted([k for n, a, b in trips for k in ((a, n), (b, -n))])
 #         return not any(n > capacity for n in accumulate(map(lambda x: x[1], stops)))        
