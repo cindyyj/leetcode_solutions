@@ -12,7 +12,8 @@ class Solution:
         res = 0     # 最大值对应的最小下标
         curr = 0    # 每一年的人口数量
         
-        # 前缀和
+        # 前缀和 
+        # cannot use for year in delta dictionary, the year is not ordered chronologically!!!
         for year in range(1950, 2051):
             curr += delta[year]
             if curr > maxp:
