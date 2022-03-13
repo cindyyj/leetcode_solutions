@@ -1,9 +1,12 @@
 class Solution:
     def sumZero(self, n: int) -> List[int]:
         
-        ans = [num for num in range(1, n)]
-        ans.append(- sum(ans))
-        return ans        
+        return [x for x in range(1-n, n, 2)]
+        
+        
+        # ans = [num for num in range(1, n)]
+        # ans.append(- sum(ans))
+        # return ans        
         
         
         # res =[]
