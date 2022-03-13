@@ -6,7 +6,7 @@ class Solution:
             res.append(i)
             res.append(-i)
             
-        if n % 2:
+        if n & 1: # n % 2 == 1
             res.append(0)
         
         return res
