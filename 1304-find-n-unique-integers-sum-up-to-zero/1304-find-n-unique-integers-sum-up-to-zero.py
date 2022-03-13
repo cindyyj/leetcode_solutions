@@ -1,7 +1,8 @@
 class Solution:
     def sumZero(self, n: int) -> List[int]:
         
-        return [x for x in range(1-n, n, 2)]
+        return range(1 - n, n, 2)
+        # return [x for x in range(1-n, n, 2)]
         
         
         # ans = [num for num in range(1, n)]
