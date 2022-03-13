@@ -8,32 +8,34 @@ class Solution:
         # 218. The Skyline Problem
         # https://leetcode.com/problems/car-pooling/discuss/867628/3-different-approaches-in-Python.
         
-        # bucket sort
-        people = [0] * 1001
-        for n, a, b in trips:
-            people[a] += n
-            people[b] -= n
+#         # bucket sort
+#         people = [0] * 1001
+#         for n, a, b in trips:
+#             people[a] += n
+#             people[b] -= n
             
-        for cur in accumulate(people):
-            if cur > capacity:
-                return False
-        return True
+#         for cur in accumulate(people):
+#             if cur > capacity:
+#                 return False
+#         return True
 
         
-#         # 前缀和 prefix sum
-#         d = defaultdict(int)
+        # 前缀和 prefix sum
+        d = defaultdict(int)
         
-#         for num, start, end in trips:
-#             d[start] += num
-#             d[end] -= num
+        for num, start, end in trips:
+            d[start] += num
+            d[end] -= num
         
-#         maxp = 0
-#         total = 0
+        maxp = 0
+        total = 0
         
-#         #  sorted(d) -> sort dict by key, defaultdict do not have attribute sort! 
-#         for pos in sorted(d):
-#             total += d[pos]
-#             d[pos] = total
-#             maxp = max(d[pos], maxp)
+        #  sorted(d) -> sort dict by key, defaultdict do not have attribute sort! 
+        for pos in sorted(d):
+            total += d[pos]
+            d[pos] = total
+            maxp = max(d[pos], maxp)
+            if maxp > capacity:
+                return False
         
-#         return maxp <= capacity
+        return True # maxp <= capacity
