@@ -8,7 +8,7 @@ class Solution:
             target = char * n
             for row in board:
                 if row == target: return True
-            for j in range(3):
+            for j in range(n):
                 col = "".join(board[i][j] for i in range(n))
                 if col == target: return True
             diag = "".join(board[i][i] for i in range(n))
