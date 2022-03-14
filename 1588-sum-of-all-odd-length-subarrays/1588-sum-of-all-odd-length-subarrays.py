@@ -1,3 +1,5 @@
+from itertools import accumulate
+
 class Solution:
     def sumOddLengthSubarrays(self, arr: List[int]) -> int:
 
@@ -13,19 +15,28 @@ class Solution:
         作者：shaw-r
         链接：https://leetcode-cn.com/problems/sum-of-all-odd-length-subarrays/solution/tong-ji-yuan-su-chu-xian-ci-shu-yi-ci-bian-li-0mss/
         """
-        # math, O(n)
-        res = 0
+        total = 0
         n = len(arr)
-        for i, v in enumerate(arr):
-            leftCount, rightCount = i, n - i - 1
-            leftOdd = (leftCount + 1) // 2
-            rightOdd = (rightCount + 1) // 2
-            leftEven = leftCount // 2 + 1
-            rightEven = rightCount // 2 + 1
-            res += v * (leftOdd * rightOdd + leftEven * rightEven)
-        return res
+        prefix = [0] + list(accumulate(arr))
+        for length in range(1, n + 1, 2):
+            for start in range(n - length + 1):
+                total += prefix[start + length] - prefix[start]
+        return total
+
+# # --------------------------- METHOD 2 ---------------------------    
+#         # math, O(n), best
+#         res = 0
+#         n = len(arr)
+#         for i, v in enumerate(arr):
+#             leftCount, rightCount = i, n - i - 1
+#             leftOdd = (leftCount + 1) // 2
+#             rightOdd = (rightCount + 1) // 2
+#             leftEven = leftCount // 2 + 1
+#             rightEven = rightCount // 2 + 1
+#             res += v * (leftOdd * rightOdd + leftEven * rightEven)
+#         return res
             
-        
+# --------------------------- METHOD 3 ---------------------------            
 #         # brute force (AC), time O (n**3)
 #         total = 0
 #         n = len(arr)
