@@ -1,4 +1,6 @@
 # Write your MySQL query statement below
+
+# https://www.mysqltutorial.org/mysql-delete-duplicate-rows/
 DELETE t1 FROM Person t1
 INNER JOIN Person t2 
 WHERE 
