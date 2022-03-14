@@ -1,6 +1,17 @@
 # leetcode_solutions
 Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub).
 
+### LC acronym
+LCUS (leetcode.com)  = Leetcode United States
+LCCN (leetcode-cn.com) =  Leetcode China
+AC = Accepted Code
+WA = Wrong Answer
+OJ = Online Judge
+TC = Total Compensation
+TLE = Time Limit Exceeded
+MLE = Memory Limit Exceeded
+YOLO=You Only Look/Live Once
+
 ### List
 - first 50 udemy: https://github.com/cissieAB/Udemy_LeetCodeInPython/tree/afb07219215250401d97de00a2592a54a1ca2e27 
 - David's LeetCode Practice with pytest: https://github.com/daviddwlee84/LeetCode/tree/baf2bdc8b60f3b0a51cb3816aa968bf518e4b7f9
