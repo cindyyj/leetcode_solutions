@@ -1,7 +1,9 @@
 import numpy as np
 class Solution:
-    def construct2DArray(self, original: List[int], m: int, n: int) -> List[List[int]]:     
-        return [original[i*n : i*n + n] for i in range(m)] if m*n == len(original) else []
+    def construct2DArray(self, original: List[int], m: int, n: int) -> List[List[int]]:   
+        
+        # one-line
+        return [original[i*n : (i + 1)*n] for i in range(m)] if m*n == len(original) else []
         
         
         # try:
