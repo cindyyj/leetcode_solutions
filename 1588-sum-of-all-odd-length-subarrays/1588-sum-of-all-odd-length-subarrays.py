@@ -16,13 +16,13 @@ class Solution:
         # math, O(n)
         res = 0
         n = len(arr)
-        for i in range(n):
-            l_odd = (i + 1) // 2
-            l_even = i // 2 + 1
-            r_odd = (n - i - 1 + 1) // 2
-            r_even = (n - i - 1 + 2) // 2
-            res += (l_odd*r_odd + l_even*r_even)*arr[i]
-        
+        for i, v in enumerate(arr):
+            leftCount, rightCount = i, n - i - 1
+            leftOdd = (leftCount + 1) // 2
+            rightOdd = (rightCount + 1) // 2
+            leftEven = leftCount // 2 + 1
+            rightEven = rightCount // 2 + 1
+            res += v * (leftOdd * rightOdd + leftEven * rightEven)
         return res
             
         
