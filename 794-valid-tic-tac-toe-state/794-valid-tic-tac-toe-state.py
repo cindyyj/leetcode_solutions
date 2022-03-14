@@ -4,14 +4,15 @@ class Solution:
         O = sum([row.count('O') for row in board])
         
         def win(char):
-            target = char * 3
+            n = 3
+            target = char * n
             for row in board:
                 if row == target: return True
             for j in range(3):
-                col = "".join(board[i][j] for i in range(3))
+                col = "".join(board[i][j] for i in range(n))
                 if col == target: return True
-            diag = "".join(board[i][i] for i in range(3))
-            anti_diag = "".join(board[i][2-i] for i in range(3))
+            diag = "".join(board[i][i] for i in range(n))
+            anti_diag = "".join(board[i][n-1-i] for i in range(n))
             
             return target in [diag, anti_diag]
         
