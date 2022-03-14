@@ -1,21 +1,7 @@
 import numpy as np
 
 class Solution:
-    def matrixReshape(self, nums: List[List[int]], r: int, c: int) -> List[List[int]]:
-        flat_list = []
-        matrix = []
-
-        for sublist in nums:
-            for item in sublist:
-                flat_list.append(item)
-
-        if len(flat_list) != r * c:
-            return nums
-        else:
-            for i in range(0,len(flat_list),c):
-                matrix.append(flat_list[i:i+c])
-            return matrix    
-        
+    def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
         # https://leetcode.com/problems/reshape-the-matrix/discuss/1317320/Python-One-Line-Two-Line-Yield-Generator-Circular-Index-Numpy-with-explaination(556)
         # generator expression (also called a generator comprehension), which has a very similar syntax to list comprehensions
         gen = (val for row in mat for val in row)
