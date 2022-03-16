@@ -3,12 +3,18 @@ class Solution:
         
         def get_key(log):
             _id, rest = log.split(" ", maxsplit = 1)
+            
+            # key_1, flag, 0, letter logs, 1 for digit logs; key_2 contents of letter logs
             return (0, rest, _id) if rest[0].isalpha() else (1, )
         
         return sorted(logs, key=get_key)
         
         
 """
+
+If maxsplit is specified, the list will have a maximum of maxsplit+1 items.
+
+
         As a reminder, here are a list of the rules that we defined before, concerning the order of logs:
 
 1). The letter-logs should be prioritized above all digit-logs.
