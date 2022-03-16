@@ -1,17 +1,23 @@
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
-        
-        def get_key(log):
-            _id, rest = log.split(" ", maxsplit = 1)
+
+        def f(log):
+            id_, rest = log.split(" ", 1)
+            return (0, rest, id_) if rest[0].isalpha() else (1,)
+
+        return sorted(logs, key = f)
+
+#         def get_key(log):
+#             _id, rest = log.split(" ", maxsplit = 1)
             
-            # key_1, flag, 0, letter logs, 1 for digit logs; key_2 contents of letter logs
-            return (0, rest, _id) if rest[0].isalpha() else (1, )
+#             # key_1, flag, 0, letter logs, 1 for digit logs; key_2 contents of letter logs
+#             return (0, rest, _id) if rest[0].isalpha() else (1, )
         
-        return sorted(logs, key=get_key)
+#         return sorted(logs, key=get_key)
         
         
 """
-
+str.split(separator, maxsplit)
 If maxsplit is specified, the list will have a maximum of maxsplit+1 items.
 
 
