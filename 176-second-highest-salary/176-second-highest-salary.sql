@@ -2,6 +2,7 @@
 
 # common top n, nth problem
 # https://leetcode.com/problems/second-highest-salary/discuss/1168444/Summary-Five-ways-to-solve-the-top-n-nth-problems
+# sql series!
 # 177, 185, 184, 1194, 1341, 586, 1549, 1532, 1369, 1097, 1077, 1070, 602, 1082, 1112, 619, 574 (most voted)
 
 # window function!
