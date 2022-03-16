@@ -15,5 +15,6 @@ class Solution:
         # in-place change!
         for row in image:
             for i in range((len(row) + 1) // 2):
-                row[len(row) - 1 - i], row[i] = row[i]^1, row[len(row) - 1 - i] ^ 1        
+                row[~i], row[i] = row[i]^1, row[~i]^1
+                # row[len(row) - 1 - i], row[i] = row[i]^1, row[len(row) - 1 - i] ^ 1        
         return image
