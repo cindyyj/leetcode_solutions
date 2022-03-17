@@ -3,6 +3,8 @@ class Solution:
         # 完全数（Perfect number），又称完美数或完备数，是一些特殊的自然数。
         # 它所有的真因子（即除了自身以外的约数）的和（即因子函数），恰好等于它本身。 1不算在内
         
+        # similar to https://leetcode.com/problems/the-kth-factor-of-n/
+        
         if num <= 1:
             return False
         
