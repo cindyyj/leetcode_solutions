@@ -5,15 +5,14 @@
 #         self.next = next
 class Solution:
     def getDecimalValue(self, head: ListNode) -> int:
-        num = head.val
+        res = head.val
         while head.next:
-            # num = num * 2 + head.next.val
-            # better with bitwise operations
-            num = (num << 1) | head.next.val
-            
+            res = res * 2 + head.next.val
+            # # better with bitwise operations
+            # num = (num << 1) | head.next.val
             head = head.next
-        
-        return num
+        return res
+
         
 #         # Use walrus operator in Python 3.8:
 #         # https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/discuss/451815/JavaPython-3-Simulate-binary-operations.
