@@ -1,6 +1,8 @@
 class Solution:
     def subArrayRanges(self, nums: List[int]) -> int:
         
+        # non-brute force solution not trivial!!!
+        # brute force
         ans, n = 0, len(nums)
         for i in range(n):
             min_, max_ = nums[i], nums[i]
