@@ -4,12 +4,14 @@ class Solution:
         # lexicographically 
         products.sort()
         query = ""
+        last = 0
         ans = list()
         
         for ch in searchWord:
             query += ch
-            find = bisect.bisect_left(products, query)
+            find = bisect.bisect_left(products, query, last)
             ans.append([s for s in products[find: find + 3] if s.startswith(query)])
+            last = find
         
         return ans
         
