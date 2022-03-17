@@ -5,6 +5,7 @@ class Solution:
         # heap + Quickselect (Hoare's selection algorithm)
         
         freq = collections.Counter(nums)
+        # sort dict return sorted list of dict keys!!!
         result = sorted(freq, key=lambda num: -freq[num])
         return result[:k]
         
