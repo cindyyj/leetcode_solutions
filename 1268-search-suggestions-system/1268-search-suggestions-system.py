@@ -1,39 +1,38 @@
 class Solution:
     def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
         
-        # list_ = []
-        # products.sort()
-        # for i, c in enumerate(searchWord):
-        #     products = [ p for p in products if len(p) > i and p[i] == c ]
-        #     list_.append(products[:3])
-        # return list_
-        
-        
-        
-        # lexicographically 
+        list_ = []
         products.sort()
-        query = ""
-        ans = list()
+        for i, c in enumerate(searchWord):
+            products = [ p for p in products if len(p) > i and p[i] == c ]
+            list_.append(products[:3])
+        return list_
         
-        def binary_search(array, target): # bisect.bisect_left implementation
-            lo = 0
-            hi = len(array)
-
-            while lo < hi:
-                mid = (lo + hi) //2
-                if array[mid] < target: 
-                    lo = mid + 1
-                else: hi = mid
-            
-            return lo
+        
+        
+#         # lexicographically 
+#         # sort + binary search
+#         products.sort()
+#         query = ""
+#         ans = list()
+        
+#         def binary_search(array, target): # bisect.bisect_left implementation
+#             lo = 0
+#             hi = len(array)
+#             while lo < hi:
+#                 mid = (lo + hi) //2
+#                 if array[mid] < target: 
+#                     lo = mid + 1
+#                 else: hi = mid         
+#             return lo
              
-        for ch in searchWord:
-            query += ch
-            find = binary_search(products, query) # bisect.bisect_left
-            ans.append([s for s in products[find: find + 3] if s.startswith(query)])
-            last = find
+#         for ch in searchWord:
+#             query += ch
+#             find = binary_search(products, query) # bisect.bisect_left
+#             ans.append([s for s in products[find: find + 3] if s.startswith(query)])
+#             last = find
         
-        return ans
+#         return ans
         
         """
         My Thoughts:
