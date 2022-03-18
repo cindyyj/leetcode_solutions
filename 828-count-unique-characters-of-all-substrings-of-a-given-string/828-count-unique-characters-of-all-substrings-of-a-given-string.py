@@ -1,5 +1,7 @@
 class Solution:
     def uniqueLetterString(self, s: str) -> int:
+        
+        # hard!!!
         idx = collections.defaultdict(list)
         for i, c in enumerate(s):
             idx[c].append(i)
