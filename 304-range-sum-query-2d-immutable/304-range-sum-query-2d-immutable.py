@@ -2,8 +2,8 @@ class NumMatrix:
 
     def __init__(self, matrix: List[List[int]]):
         m, n = len(matrix), len(matrix[0])
-        # if not m or not n:
-        #     m = n = 0
+        if not m or not n:
+            m = n = 0
         self.pres = [[0] * (n + 1) for _ in range(m + 1)]
         for i in range(m):
             for j in range(n):
