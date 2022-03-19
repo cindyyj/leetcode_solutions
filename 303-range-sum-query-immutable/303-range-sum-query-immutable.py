@@ -11,6 +11,14 @@ class NumArray:
         else:
             return self.pres[right] - self.pres[left - 1]
 
+    """
+    advanced, 307. Range Sum Query - Mutable
+
+    Time:
+    Constructor: O(N)
+    sumRange(left, right): O(1)
+    Space: O(1)
+    """
 
 # Your NumArray object will be instantiated and called as such:
 # obj = NumArray(nums)
