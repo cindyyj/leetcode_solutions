@@ -2,36 +2,89 @@ from copy import copy, deepcopy
 import numpy as np
 
 class Solution:
-    def gameOfLifeRule(self, live_cells):        
-        cell_map = defaultdict(int)
-        near = [(1,0), (1,-1), (0,-1), (-1,-1), (-1,0), (-1,1), (0,1), (1,1)]
-        for row_num,col_num in live_cells:
-            for dx,dy in near:
-                i = row_num + dx
-                j = col_num + dy
-                if row_num != i or col_num != j:
-                    cell_map[(i,j)] += 1
-        
-        # 细胞存活的规则为: 
-        # 1. 活细胞周围有2,3个活细胞存活
-        # 2. 死细胞周围有3个活细胞存活
-        return {cell for cell in cell_map if (cell_map[cell] == 3 and cell not in live_cells)
-                                        or (cell_map[cell] in (2, 3) and cell in live_cells)}
+    """
+    in-place solution! 
+    
+    分析：1 代表细胞活的， 0 代表细胞死的，那么这个位置就四种状态，用【下一个状态，当前状态】表示，最后需要用右移操作更新结果
+    状态 0： 00 ，死的，下一轮还是死的
+    状态 1： 01，活的，下一轮死了
+    状态 2： 10，死的，下一轮活了
+    状态 3： 11，活的，下一轮继续活着
+    进一步：下一轮活的可能有两种，也就是要把单元格变为 1
 
+    这个活细胞周围八个位置有两个或三个活细胞，下一轮继续活，属于 11
+    这个细胞本来死的，周围有三个活着的，下一轮复活了，属于 10
 
+那遍历下每个格子看他周围细胞有多少个活细胞就行了，然后更改为状态，那么对于第一种可能，把 board[i][j] 设置为 3，对于第二种可能状态设置为 2，设置个高位flag，遍历后面的格子，拿到与他相邻的格子中有多少个 alive 的，和 1 与一下即可，最后我们把 board[i][j]右移 1位，更新结果
+
+作者：jerry_nju
+链接：https://leetcode-cn.com/problems/game-of-life/solution/si-lu-jian-dan-yi-dong-zhu-xing-jie-shi-by-jerry_n/
+    """
     def gameOfLife(self, board: List[List[int]]) -> None:
         """
         Do not return anything, modify board in-place instead.
         """
-        # 初始的活细胞所在位置
-        live_cells = {(i, j) for i, row in enumerate(board) for j, is_live in enumerate(row) if is_live}
+        if not board or not board[0]:
+            return
+        
+        m, n = len(board), len(board[0])
+        for i in range(m):
+            for j in range(n):
+                cnt = self.count_alive(board, i, j)
+                if board[i][j] and cnt in [2, 3]:
+                    board[i][j] = 3
+                if not board[i][j] and cnt == 3:
+                    board[i][j] = 2
+        
+        for i in range(m):
+            for j in range(n):
+                board[i][j] >>= 1
+    
+    def count_alive(self, board, i, j):
+        m, n = len(board), len(board[0])
+        cnt = 0
+        directions = [(0, 1), (0, -1), (-1, 0), (1, 0),
+                      (1, 1), (1, -1), (-1, 1), (-1, -1)]
+        
+        for dx, dy in directions:
+            x, y = i + dx, j + dy
+            if x < 0 or y < 0 or x == m or y == n:
+                continue
+            cnt += board[x][y] & 1
+        
+        return cnt
+ 
+    
+#     def gameOfLifeRule(self, live_cells):        
+#         cell_map = defaultdict(int)
+#         near = [(1,0), (1,-1), (0,-1), (-1,-1), (-1,0), (-1,1), (0,1), (1,1)]
+#         for row_num,col_num in live_cells:
+#             for dx,dy in near:
+#                 i = row_num + dx
+#                 j = col_num + dy
+#                 if row_num != i or col_num != j:
+#                     cell_map[(i,j)] += 1
+        
+#         # 细胞存活的规则为: 
+#         # 1. 活细胞周围有2,3个活细胞存活
+#         # 2. 死细胞周围有3个活细胞存活
+#         return {cell for cell in cell_map if (cell_map[cell] == 3 and cell not in live_cells)
+#                                         or (cell_map[cell] in (2, 3) and cell in live_cells)}
 
-        # 通过规则判断下一轮的活细胞所在位置
-        live_cells = self.gameOfLifeRule(live_cells)
 
-        for i, row in enumerate(board):
-            for j in range(len(row)):
-                row[j] = int((i, j) in live_cells)
+#     def gameOfLife(self, board: List[List[int]]) -> None:
+#         """
+#         Do not return anything, modify board in-place instead.
+#         """
+#         # 初始的活细胞所在位置
+#         live_cells = {(i, j) for i, row in enumerate(board) for j, is_live in enumerate(row) if is_live}
+
+#         # 通过规则判断下一轮的活细胞所在位置
+#         live_cells = self.gameOfLifeRule(live_cells)
+
+#         for i, row in enumerate(board):
+#             for j in range(len(row)):
+#                 row[j] = int((i, j) in live_cells)
         
         
         
