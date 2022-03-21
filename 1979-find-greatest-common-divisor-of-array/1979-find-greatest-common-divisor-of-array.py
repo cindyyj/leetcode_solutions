@@ -1,6 +1,10 @@
 import math
 class Solution:
     def findGCD(self, nums: List[int]) -> int:
+        # 『辗转相除法、更相减损术、Stein算法』最大公约数的三种实现方式
+        # 时间复杂度：O(n+logM)，其中 n 为 nums 的长度，M 为 nums 的最大值。
+        # 空间复杂度：迭代为 O(1)，递归为 O(logM)。
+        
         # 方法三：Stein算法
         # Stein算法 是一种计算两个数最大公约数的算法，是针对欧几里得算法在对大整数进行运算时，需要试商导致增加运算时间的缺陷而提出的改进算法。
 
