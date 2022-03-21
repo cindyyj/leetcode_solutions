@@ -1,5 +1,7 @@
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
+        # key is a parameter for the min() function that specifies the sorting order. 
+        # If key=len then check the list or tuple or whatever for the value with smallest length and return that value
         if not strs:
             return ""
         strs.sort()
