@@ -2,7 +2,39 @@ from copy import copy, deepcopy
 import numpy as np
 
 class Solution:
+    def gameOfLifeRule(self, live_cells):        
+        cell_map = defaultdict(int)
+        near = [(1,0), (1,-1), (0,-1), (-1,-1), (-1,0), (-1,1), (0,1), (1,1)]
+        for row_num,col_num in live_cells:
+            for dx,dy in near:
+                i = row_num + dx
+                j = col_num + dy
+                if row_num != i or col_num != j:
+                    cell_map[(i,j)] += 1
+        
+        # 细胞存活的规则为: 
+        # 1. 活细胞周围有2,3个活细胞存活
+        # 2. 死细胞周围有3个活细胞存活
+        return {cell for cell in cell_map if (cell_map[cell] == 3 and cell not in live_cells)
+                                        or (cell_map[cell] in (2, 3) and cell in live_cells)}
+
+
     def gameOfLife(self, board: List[List[int]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        # 初始的活细胞所在位置
+        live_cells = {(i, j) for i, row in enumerate(board) for j, is_live in enumerate(row) if is_live}
+
+        # 通过规则判断下一轮的活细胞所在位置
+        live_cells = self.gameOfLifeRule(live_cells)
+
+        for i, row in enumerate(board):
+            for j in range(len(row)):
+                row[j] = int((i, j) in live_cells)
+        
+        
+        
         """
         Do not return anything, modify board in-place instead.
         
@@ -12,36 +44,35 @@ class Solution:
         
         下图展示的是带 zero padding 的 2D 卷积操作，也是为了方便处理我们的数据
         (本题中同样采用补零，如果不在原始的 board 的周围补零，对于 board 最外围的一圈值处理起来比较麻烦，而通过补零我们可以统一进行处理)
-
-        作者：LotusPanda
-        链接：https://leetcode-cn.com/problems/game-of-life/solution/xiong-mao-shua-ti-python3-bao-xue-bao-hui-cvzhong-/
         
         能想到卷积操作是相当厉害了，这里 * 就是利用了 numpy 中最朴素的逐位对应相乘。
         卷积核的作用是计数，所以中间位置是 0，周围 8 个位置是 1，乘积之和就是周围存活的生命数。
         顺便复习了卷积神经网络（CNN）的相关概念。
         
         """
-        r, c = len(board), len(board[0])
-        # 下面两行做 zero padding
-        board_exp = np.array([[0 for _ in range(c + 2)] for _ in range(r + 2)])
-        board_exp[1:1 + r, 1:1 + c] = np.array(board)
-        # 设置卷积核
-        kernel = np.array([[1, 1, 1], [1, 0, 1], [1, 1, 1]])
-        # 开始卷积
-        for i in range(1, r + 1):
-            for j in range(1, c + 1):
-                # 统计细胞周围 8 个位置的状态
-                temp_sum = np.sum(kernel * board_exp[i - 1:i + 2, j - 1:j + 2])
-                # 按照题目规则进行判断
-                if board_exp[i, j] == 1:
-                    if temp_sum < 2 or temp_sum > 3:
-                        board[i - 1][j - 1] = 0
-                else:
-                    if temp_sum == 3:
-                        board[i - 1][j - 1] = 1  
+# # 作者：LotusPanda
+# # 链接：https://leetcode-cn.com/problems/game-of-life/solution/xiong-mao-shua-ti-python3-bao-xue-bao-hui-cvzhong-/
 
-# 作者：LotusPanda
-# 链接：https://leetcode-cn.com/problems/game-of-life/solution/xiong-mao-shua-ti-python3-bao-xue-bao-hui-cvzhong-/
+#         r, c = len(board), len(board[0])
+#         # 下面两行做 zero padding
+#         board_exp = np.array([[0 for _ in range(c + 2)] for _ in range(r + 2)])
+#         board_exp[1:1 + r, 1:1 + c] = np.array(board)
+#         # 设置卷积核
+#         kernel = np.array([[1, 1, 1], [1, 0, 1], [1, 1, 1]])
+#         # 开始卷积
+#         for i in range(1, r + 1):
+#             for j in range(1, c + 1):
+#                 # 统计细胞周围 8 个位置的状态
+#                 temp_sum = np.sum(kernel * board_exp[i - 1:i + 2, j - 1:j + 2])
+#                 # 按照题目规则进行判断
+#                 if board_exp[i, j] == 1:
+#                     if temp_sum < 2 or temp_sum > 3:
+#                         board[i - 1][j - 1] = 0
+#                 else:
+#                     if temp_sum == 3:
+#                         board[i - 1][j - 1] = 1  
+
+
         
 #         def get_neighbor(r, c):
 #             neighbors = [(1,0), (1,-1), (0,-1), (-1,-1), (-1,0), (-1,1), (0,1), (1,1)]
