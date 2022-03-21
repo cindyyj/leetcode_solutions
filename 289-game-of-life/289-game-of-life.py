@@ -5,6 +5,11 @@ class Solution:
     def gameOfLife(self, board: List[List[int]]) -> None:
         """
         Do not return anything, modify board in-place instead.
+        
+        能想到卷积操作是相当厉害了，这里 * 就是利用了 numpy 中最朴素的逐位对应相乘。
+        卷积核的作用是计数，所以中间位置是 0，周围 8 个位置是 1，乘积之和就是周围存活的生命数。
+        顺便复习了卷积神经网络（CNN）的相关概念。
+        
         """
         r, c = len(board), len(board[0])
         # 下面两行做 zero padding
