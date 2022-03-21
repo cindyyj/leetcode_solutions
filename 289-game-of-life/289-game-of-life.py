@@ -6,6 +6,16 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
         
+        没有补零 (zero padding) 的2维卷积的示意图，
+        深蓝色的 3 x 3 的正方形就是所说的 kernel，下面的浅蓝色就是图像，通过滑动 kernel 并且将 kernel 的对应位置和它覆盖区域的对应位置的数值相乘并加和，
+        就可以得到卷积后某一个位置的值，大家可以自己看着图计算一下
+        
+        下图展示的是带 zero padding 的 2D 卷积操作，也是为了方便处理我们的数据
+        (本题中同样采用补零，如果不在原始的 board 的周围补零，对于 board 最外围的一圈值处理起来比较麻烦，而通过补零我们可以统一进行处理)
+
+        作者：LotusPanda
+        链接：https://leetcode-cn.com/problems/game-of-life/solution/xiong-mao-shua-ti-python3-bao-xue-bao-hui-cvzhong-/
+        
         能想到卷积操作是相当厉害了，这里 * 就是利用了 numpy 中最朴素的逐位对应相乘。
         卷积核的作用是计数，所以中间位置是 0，周围 8 个位置是 1，乘积之和就是周围存活的生命数。
         顺便复习了卷积神经网络（CNN）的相关概念。
