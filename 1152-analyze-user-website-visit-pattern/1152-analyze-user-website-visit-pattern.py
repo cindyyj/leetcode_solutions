@@ -26,9 +26,9 @@ class Solution:
             for comb in combs:
                 cnt[comb] += 1
 
-        return list(min(cnt, key=lambda k: (-cnt[k], k))) 
+        # return list(min(cnt, key=lambda k: (-cnt[k], k))) 
     
-        # ans = sorted(cnt, key=lambda x : (-cnt[x], x))  # sort descending by value, then lexicographically
-        # return ans[0]
+        ans = sorted(cnt, key=lambda x : (-cnt[x], x))  # sort descending by value, then lexicographically
+        return ans[0]
     
         # return max(sorted(cnt), key=cnt.get)
