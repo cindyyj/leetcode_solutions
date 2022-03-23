@@ -16,4 +16,6 @@ class Solution:
             for comb in combs:
                 cnt[comb] += 1
         
-        return max(sorted(cnt), key=cnt.get)
+        ans = sorted(cnt, key=lambda x : (-cnt[x], x))
+        return ans[0]
+        # return max(sorted(cnt), key=cnt.get)
