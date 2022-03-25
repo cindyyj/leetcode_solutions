@@ -13,22 +13,27 @@ The popitem() method for ordered dictionaries returns and removes a (key, value)
 """
 from collections import OrderedDict
 
-class LRUCache(OrderedDict):
-    def __init__(self, capacity: int):
-        self.capacity = capacity
+class LRUCache():
+    def __init__(self, capacity):
+        self.dic = collections.OrderedDict()
+        self.remain = capacity
 
-    def get(self, key: int) -> int:
-        if key not in self:
+    def get(self, key):
+        if key not in self.dic:
             return -1
-        self.move_to_end(key)
-        return self[key]
+        v = self.dic.pop(key) 
+        self.dic[key] = v   # set key as the newest one
+        return v
 
-    def put(self, key: int, value: int) -> None:
-        if key in self:
-            self.move_to_end(key)
-        self[key] = value
-        if len(self) > self.capacity:
-            self.popitem(last = False)
+    def put(self, key, value):
+        if key in self.dic:    
+            self.dic.pop(key)
+        else:
+            if self.remain > 0:
+                self.remain -= 1  
+            else:  # self.dic is full
+                self.dic.popitem(last=False) 
+        self.dic[key] = value
 
 
 # Your LRUCache object will be instantiated and called as such:
