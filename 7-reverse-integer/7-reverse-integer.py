@@ -1,27 +1,31 @@
 class Solution:
-    def reverse_pos(self, x):
+    def reverse(self, x: int) -> int:        
+        sign = [1,-1][x < 0]
+        res = sign * int(str(abs(x))[::-1])
+        return res if -(2**31)-1 < res < 2**31 else 0
+
+#     def reverse_pos(self, x):    
+#         INT_MAX = 2**31 - 1
         
-        INT_MAX = 2**31 - 1
-        
-        rev = 0
-        while x != 0:
-            # go out of range when reversed! 
-            if rev > INT_MAX // 10:
-                return 0
+#         rev = 0
+#         while x != 0:
+#             # go out of range when reversed! 
+#             if rev > INT_MAX // 10:
+#                 return 0
             
-            x, digit = x // 10, x % 10  # divmod(x, 10)
-            rev = rev*10 + digit
-        return rev
+#             x, digit = x // 10, x % 10  # divmod(x, 10)
+#             rev = rev*10 + digit
+#         return rev
     
     
-    def reverse(self, x: int) -> int:
+#     def reverse(self, x: int) -> int:
         
-        if x == 0:
-            return x
-        if x > 0:
-            return self.reverse_pos(x)
-        if x < 0:
-            return -self.reverse_pos(-x)
+#         if x == 0:
+#             return x
+#         if x > 0:
+#             return self.reverse_pos(x)
+#         if x < 0:
+#             return -self.reverse_pos(-x)
         
 
 #         # https://leetcode.com/problems/reverse-integer/solution/
