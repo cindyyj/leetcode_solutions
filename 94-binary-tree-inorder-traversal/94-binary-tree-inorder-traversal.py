@@ -5,13 +5,16 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def dfs(self, root, res):
-        if root:
-            self.dfs(root.left, res)
-            res.append(root.val)
-            self.dfs(root.right, res)
+    # def dfs(self, root, res):
+    #     if root:
+    #         self.dfs(root.left, res)
+    #         res.append(root.val)
+    #         self.dfs(root.right, res)
     
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        res = []
-        self.dfs(root, res)
-        return res
+        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right) if root else []
+        
+        
+        # res = []
+        # self.dfs(root, res)
+        # return res
