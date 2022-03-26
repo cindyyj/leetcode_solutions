@@ -6,6 +6,11 @@
 #         self.right = right
 class Solution:
     def countUnivalSubtrees(self, root: Optional[TreeNode]) -> int:
+        
+        # Here 1_1, 5_1, 5_2 and 5_3 are also subtrees whose child nodes are all same or null. 
+        # "3 subtrees with 5 or null as node values" and "1 subtree as 1 or null as same values".
+        # Again: Key here is each of these subtrees don't have to have the same value.
+        
         self.ans = 0
         
         def dfs(node, parent):
