@@ -7,15 +7,35 @@
 
 class Solution:
     def inorderSuccessor(self, root: TreeNode, p: TreeNode) -> Optional[TreeNode]:
-              
-        succ = None
-        while root:
-            if p.val < root.val:
-                succ = root
-                root = root.left
-            else:
-                root = root.right
-        return succ    
+        
+        def inorder(r):
+            return inorder(r.left) + [r] + inorder(r.right) if r else []
+        
+        lst = inorder(root)
+        for i in range(len(lst)):
+            if lst[i].val == p.val and i < len(lst) - 1:
+                return lst[i + 1]
+            
+        return None
+        
+        
+        
+        # if not root: 
+        #     return None
+        # if root.val > p.val: 
+        #     return self.inorderSuccessor(root.left,p) or root 
+        # return self.inorderSuccessor(root.right,p)
+        
+        
+        # # BST
+        # succ = None
+        # while root:
+        #     if p.val < root.val:
+        #         succ = root
+        #         root = root.left
+        #     else:
+        #         root = root.right
+        # return succ    
 
     """
     What an amazing solution !! Below is version of predecessor inspired by this. Took me a bit to understand the logic behind how successor and predecessor works with this logic. For people like me :) , below is a little explanation that might help understand.
