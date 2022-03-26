@@ -10,21 +10,32 @@ class Solution:
     # It will be O(log n) for a balanced tree and in the worst case can be O(n).
     
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        return self.isValid(root)
+        
+        def dfs(root, low=float("-inf"), high=float("inf")):
+            if not root:
+                return True
+            elif not low < root.val < high:
+                return False
+            return dfs(root.left, low, root.val) and dfs(root.right, root.val, high)
+        
+        return dfs(root)
+                
+        
+#         return self.isValid(root)
     
-    def isValid(self, node, lower = float('-inf'), upper = float('inf') ):
+#     def isValid(self, node, lower = float('-inf'), upper = float('inf') ):
         
-        if not node: 
-            return True
+#         if not node: 
+#             return True
         
-        val = node.val
-        if val <= lower or val >= upper:
-            return False
+#         val = node.val
+#         if val <= lower or val >= upper:
+#             return False
         
-        if not self.isValid(node.right, val, upper):
-            return False
+#         if not self.isValid(node.right, val, upper):
+#             return False
         
-        if not self.isValid(node.left, lower, val):
-            return False
+#         if not self.isValid(node.left, lower, val):
+#             return False
         
-        return True
+#         return True
