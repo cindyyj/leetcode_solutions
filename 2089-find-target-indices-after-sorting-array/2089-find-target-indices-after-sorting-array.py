@@ -12,11 +12,11 @@ class Solution:
         
         
         
-        # O(nlog(n))
-        nums.sort()
+#         # O(nlog(n))
+#         nums.sort()
         
-        res = []
-        for i, num in enumerate(nums):
-            if num == target:
-                res.append(i)
-        return res
+#         res = []
+#         for i, num in enumerate(nums):
+#             if num == target:
+#                 res.append(i)
+#         return res
