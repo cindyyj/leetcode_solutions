@@ -1,5 +1,6 @@
 class Solution:
     def maxDepth(self, s: str) -> int:
+        # Amazon phone interview!
         
         # Ignore digits and signs,
         # only count the current open parentheses cur.
