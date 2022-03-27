@@ -26,34 +26,34 @@ class MaxStack(list):
         return r
     
     # use tuple to save max
-#     def __init__(self):
-#         self.stack = []        
+    def __init__(self):
+        self.stack = []        
 
-#     def push(self, x: int) -> None:
-#         m = max(x, self.stack[-1][1] if self.stack else float("-inf"))
-#         self.stack.append((x, m))
+    def push(self, x: int) -> None:
+        m = max(x, self.peekMax()) if self.stack else x 
+        self.stack.append((x, m))
 
-#     def pop(self) -> int:
-#         return self.stack.pop()[0]
+    def pop(self) -> int:
+        return self.stack.pop()[0]
 
-#     def top(self) -> int:
-#         return self.stack[-1][0]        
+    def top(self) -> int:
+        return self.stack[-1][0]        
 
-#     def peekMax(self) -> int:
-#         return self.stack[-1][1]     
+    def peekMax(self) -> int:
+        return self.stack[-1][1]     
 
-#     def popMax(self) -> int:
+    def popMax(self) -> int:
 
-#         cur_max = self.stack[-1][1]
-#         tmp = []
+        _cache = []
+        cur_max = self.peekMax()
+        while self.top() != self.peekMax():
+            _cache.append(self.pop())
         
-#         while self.stack[-1][0] != cur_max:
-#             tmp.append(self.stack.pop())
-        
-#         self.stack.pop()
-#         self.stack.extend(reversed(tmp))
+        self.stack.pop()
+        while _cache:
+            self.push(_cache.pop())
             
-#         return cur_max
+        return cur_max
      
 
 
