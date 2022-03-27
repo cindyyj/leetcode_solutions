@@ -17,3 +17,9 @@ class Solution:
                 if k == suffix:
                     res -= freq[suffix]
         return res
+    
+    """
+special case when prefix == suffix:
+I think it's better to think it this way. Using n strings you have to fill two positions _ _ . And number of possible ways to do so would be n for 1st position and remaining n - 1 for 2nd because we've already used one number for 1st pos and thus 2nd pos can be filled with remaining (n - 1) strings to form target.
+And so according to multiplication principle -> n * (n - 1) should be the number of ways.
+    """
