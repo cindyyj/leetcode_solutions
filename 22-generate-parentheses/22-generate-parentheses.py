@@ -5,13 +5,13 @@ class Solution:
         cur = ""
         
         def backtrack(cur, left, right):
+            if left > n or right > left:
+                return 
             if len(cur) == 2*n:
                 ans.append(cur)
                 return 
-            if left < n:
-                backtrack(cur + "(", left + 1, right) 
-            if right < left:
-                backtrack(cur +")", left, right + 1)
+            backtrack(cur + "(", left + 1, right) 
+            backtrack(cur +")", left, right + 1)
         
         backtrack(cur, 0, 0)
         return ans
