@@ -1,4 +1,20 @@
 class SparseVector:
+    def __init__(self, nums: List[int]):
+        self.svec = defaultdict(int)
+        self.svec = {i:v for i,v in enumerate(nums) if v} 
+        
+    def dotProduct(self, vec: 'SparseVector') -> int:
+        res=0
+        for i,v in self.svec.items():
+            # dict.get(key, default = None)
+            # key − This is the Key to be searched in the dictionary.
+            # default − This is the Value to be returned in case key does not exist.
+            res += v * vec.svec[i]
+
+            # res+=v*vec.svec.get(i,0)  
+
+        return res
+    
     
 #     # fb 
 #     # efficient: store the non-zero values and their corresponding indices in a dictionary, with the index being the key 
