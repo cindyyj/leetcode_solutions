@@ -1,10 +1,13 @@
 class Solution:
     def isSameAfterReversals(self, num: int) -> bool:
-        if num == 0:
-            return True
         
-        # for case when num != 0
-        if list(str(num))[-1] == '0':
-            return False
+        return not num or num % 10 != 0
         
-        return True
+#         if num == 0:
+#             return True
+        
+#         # for case when num != 0
+#         if list(str(num))[-1] == '0':
+#             return False
+        
+#         return True
